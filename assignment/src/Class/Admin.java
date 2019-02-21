@@ -179,9 +179,9 @@ public class Admin extends User{
             catch(Exception e){
             
             }
-        }else if (position == "Customer"){
-            
         }
+            
+        
     }
     
     

@@ -8,6 +8,8 @@ package oodj.assignment.v1;
 
 import Class.Admin;
 import Class.User;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -142,6 +144,7 @@ public class Login extends javax.swing.JFrame {
     
     
     private void login_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_butActionPerformed
+        
         String Email = email_txt.getText();
         char[] pwd = pwd_txt.getPassword();
         String formattedString_password = Arrays.toString(pwd)
@@ -155,23 +158,31 @@ public class Login extends javax.swing.JFrame {
         String Position = (String)pos_combox.getSelectedItem();
         
         User user = new User(Email,Password,Position);
-        if (user.user_validate(Email,Password,Position) == "Admin")
-        {
-            JOptionPane.showMessageDialog(null,"You logged in as Admin.");
-            Admin_Menu am = new Admin_Menu();
-            am.setVisible(true);
-            this.setVisible(false);
-            
+        if(Password.length() == 0){
+            JOptionPane.showMessageDialog(rootPane,"Please enter your password!");
+        }
+        else {
+
+            boolean login = user.user_validate(Email,Password,Position);
+            if (!login){
+                JOptionPane.showMessageDialog(null,"Invalid login!");
+            }else{
+                JOptionPane.showMessageDialog(null,"You logged in as: " + Position);
+                Admin_Menu am = new Admin_Menu();
+                am.setVisible(true);
+                this.setVisible(false);
+                
+            }
             
         }
-        
-        else if(user.user_validate(Email,Password,Position) == "Customer")
-        {
+        /*
+        else if (Position == "Customer"){
             JOptionPane.showMessageDialog(null,"You logged in as Customer.");
             Cus_Menu cus = new Cus_Menu();
             cus.setVisible(true);
             this.setVisible(false);
         }
+        */
         
         
     }//GEN-LAST:event_login_butActionPerformed
