@@ -254,6 +254,7 @@ public class Mng_profile extends javax.swing.JFrame {
 
     private void update_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_butActionPerformed
         Admin admin = new Admin();
+        Customer cus = new Customer();
         String Email = email_txt.getText();
         String Newfirstname = firstname_txt.getText();      
         String Newlastname = lastname_txt.getText();
@@ -276,17 +277,21 @@ public class Mng_profile extends javax.swing.JFrame {
         
         char[] pwd = pwd_txt.getPassword();
         char[] crm_pwd = crm_pwd_txt.getPassword();
+        StaticClass Sc = new StaticClass();
         if(Arrays.equals(pwd, crm_pwd)){ //passwords is matched
             String formattedString_password = Arrays.toString(pwd)
-                .replace(",", "")  //remove the commas
-                .replace("[", "")  //remove the open bracket
-                .replace("]", "")  //remove the close bracket
-                .replace(" ", "") //remove the spacebar
-                .trim();
-            String Newpassword = formattedString_password;
-            
-            admin.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
-            System.out.println("");
+                    .replace(",", "")  //remove the commas
+                    .replace("[", "")  //remove the open bracket
+                    .replace("]", "")  //remove the close bracket
+                    .replace(" ", "") //remove the spacebar
+                    .trim();
+                String Newpassword = formattedString_password;
+            if (Sc.Position == "Admin"){
+                admin.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
+            }
+            else if (Sc.Position == "Customer"){
+                cus.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
+            }
         }
         else{
             //passwords are not matched
