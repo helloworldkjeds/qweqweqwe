@@ -1,0 +1,9 @@
+PD15224,Chair,1,12.9,Non-fragile
+PD62225,Table,12,23.9,Non-fragile
+PD83222,Table,12,23.9,Non-fragile
+PD81223,Table,12,23.9,Non-fragile
+PD48227,Table,12,23.9,Non-fragile
+PD08227,Table,12,23.9,Non-fragile
+PD71220,Table,12,23.9,Non-fragile
+PD15228,Table,12,23.9,Non-fragile
+PD75224,Table,12,23.9,Non-fragile

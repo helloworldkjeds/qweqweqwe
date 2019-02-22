@@ -5,6 +5,8 @@
  */
 package oodj.assignment.v1;
 
+import Class.Product;
+
 /**
  *
  * @author New
@@ -65,6 +67,11 @@ public class Add_product extends javax.swing.JFrame {
         jLabel6.setText("*fragile product cost 10% of original price for bundling charge.");
 
         crm_but.setText("Confirm");
+        crm_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crm_butActionPerformed(evt);
+            }
+        });
 
         back_but.setText("Back");
         back_but.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +156,16 @@ public class Add_product extends javax.swing.JFrame {
         mngpdt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
+
+    private void crm_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crm_butActionPerformed
+        String pdt_Name = pdt_name_txt.getText();
+        int pdt_Qtt = Integer.parseInt(qty_txt.getText());
+        double pdt_Price = Double.parseDouble(price_txt.getText());
+        String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
+        
+        Product pdt = new Product();
+        pdt.add_product(pdt_Name,pdt_Qtt,pdt_Price,pdt_Ctgy);
+    }//GEN-LAST:event_crm_butActionPerformed
 
     /**
      * @param args the command line arguments

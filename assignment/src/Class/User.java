@@ -29,9 +29,7 @@ public class User extends DataObject{
     protected int contact_no;
     private final String CusFile = "customertxt.txt";
     private final String AdminFile = "admintxt.txt";
-    public User() {
-        
-    }
+    public User() {}
     
     public User(String email,String password,String position){
         this.email =email;
