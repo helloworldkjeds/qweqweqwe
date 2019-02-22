@@ -7,3 +7,9 @@ PD08227,Table,12,23.9,Non-fragile
 PD71220,Table,12,23.9,Non-fragile
 PD15228,Table,12,23.9,Non-fragile
 PD75224,Table,12,23.9,Non-fragile
+PD78222,ewqewq,123,123.0,Non-fragile
+PD27223,null,0,12.6,null
+PD22227,null,0,0.0,null
+PD67227,null,0,0.0,null
+PD68220,zxc,12,3.15,Non-fragile
+PD83227,zxc,12,3.15,Fragile

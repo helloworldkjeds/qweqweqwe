@@ -27,11 +27,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="add_pdt_lab" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="pdt_ctg_lab" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="pdt_ctg_combox" min="-2" pref="220" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Component id="qty_txt" alignment="1" min="-2" pref="218" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -47,16 +42,31 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="0" min="-2" pref="362" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Component id="crm_but" min="-2" pref="97" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="back_but" min="-2" pref="98" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="pdt_ctg_lab" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="final_price_lab" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="pdt_ctg_combox" pref="220" max="32767" attributes="0"/>
+                          <Component id="final_price_txt" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cal_final_price_but" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                          <Component id="crm_but" min="-2" pref="97" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="back_but" min="-2" pref="98" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,16 +95,26 @@
                   <Component id="pdt_ctg_lab" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="pdt_ctg_combox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" pref="22" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel6" min="-2" pref="16" max="-2" attributes="0"/>
-              <EmptySpace pref="69" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="crm_but" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="back_but" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" pref="16" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="final_price_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cal_final_price_but" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="final_price_lab" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="back_but" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="crm_but" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -125,6 +145,9 @@
     <Component class="javax.swing.JTextField" name="qty_txt">
     </Component>
     <Component class="javax.swing.JTextField" name="price_txt">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="price_txtActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="pdt_ctg_lab">
       <Properties>
@@ -171,6 +194,27 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="back_butActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="final_price_lab">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Final Price:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="final_price_txt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="final_price_txtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="cal_final_price_but">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calculate Final Price"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cal_final_price_butActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

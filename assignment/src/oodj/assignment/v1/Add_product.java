@@ -6,6 +6,7 @@
 package oodj.assignment.v1;
 
 import Class.Product;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Add_product extends javax.swing.JFrame {
      */
     public Add_product() {
         initComponents();
+        
     }
 
     /**
@@ -42,6 +44,9 @@ public class Add_product extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         crm_but = new javax.swing.JButton();
         back_but = new javax.swing.JButton();
+        final_price_lab = new javax.swing.JLabel();
+        final_price_txt = new javax.swing.JTextField();
+        cal_final_price_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +57,12 @@ public class Add_product extends javax.swing.JFrame {
         jLabel2.setText("Quantity:");
 
         jLabel3.setText("Price:");
+
+        price_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                price_txtActionPerformed(evt);
+            }
+        });
 
         pdt_ctg_lab.setText("Product Category:");
 
@@ -80,6 +91,22 @@ public class Add_product extends javax.swing.JFrame {
             }
         });
 
+        final_price_lab.setText("Final Price:");
+
+        final_price_txt.setEditable(false);
+        final_price_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                final_price_txtActionPerformed(evt);
+            }
+        });
+
+        cal_final_price_but.setText("Calculate Final Price");
+        cal_final_price_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cal_final_price_butActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,10 +115,6 @@ public class Add_product extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(add_pdt_lab)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pdt_ctg_lab)
-                        .addGap(18, 18, 18)
-                        .addComponent(pdt_ctg_combox, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(qty_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -103,14 +126,25 @@ public class Add_product extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(price_txt)
                                 .addComponent(pdt_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel4)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(crm_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pdt_ctg_lab)
+                            .addComponent(final_price_lab))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pdt_ctg_combox, 0, 220, Short.MAX_VALUE)
+                            .addComponent(final_price_txt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cal_final_price_but))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGap(116, 116, 116)
+                            .addComponent(crm_but, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,15 +167,22 @@ public class Add_product extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pdt_ctg_lab)
                     .addComponent(pdt_ctg_combox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(final_price_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cal_final_price_but)
+                        .addComponent(final_price_lab)))
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(crm_but, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(135, 135, 135))
+                    .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(crm_but, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(131, 131, 131))
         );
 
         pack();
@@ -160,12 +201,43 @@ public class Add_product extends javax.swing.JFrame {
     private void crm_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crm_butActionPerformed
         String pdt_Name = pdt_name_txt.getText();
         int pdt_Qtt = Integer.parseInt(qty_txt.getText());
-        double pdt_Price = Double.parseDouble(price_txt.getText());
+        //double pdt_final_Price = Double.parseDouble(final_price_txt.getText());
         String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
+        double pdt_final_Price;
+        try 
+        {
+            pdt_final_Price = Double.parseDouble(final_price_txt.getText());
+        }  
+        catch (Exception e) 
+        { 
+                JOptionPane.showMessageDialog(this, "Please calculate the final price of product!",
+                        "Error: final price is not calculated", JOptionPane.ERROR_MESSAGE);
+                return;
+        }
         
         Product pdt = new Product();
-        pdt.add_product(pdt_Name,pdt_Qtt,pdt_Price,pdt_Ctgy);
+        pdt.add_product(pdt_Name,pdt_Qtt,pdt_final_Price,pdt_Ctgy);
+        
+        
     }//GEN-LAST:event_crm_butActionPerformed
+
+    private void final_price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_final_price_txtActionPerformed
+        
+        
+    }//GEN-LAST:event_final_price_txtActionPerformed
+
+    private void price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_price_txtActionPerformed
+        
+        
+    }//GEN-LAST:event_price_txtActionPerformed
+
+    private void cal_final_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_final_price_butActionPerformed
+        double pdt_Price = Double.parseDouble(price_txt.getText());
+        String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
+        Product pdt = new Product();
+        double final_price = pdt.calculate_final_price(pdt_Price, pdt_Ctgy);
+        final_price_txt.setText(String.valueOf(final_price));
+    }//GEN-LAST:event_cal_final_price_butActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,7 +277,10 @@ public class Add_product extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel add_pdt_lab;
     private javax.swing.JButton back_but;
+    private javax.swing.JButton cal_final_price_but;
     private javax.swing.JButton crm_but;
+    private javax.swing.JLabel final_price_lab;
+    private javax.swing.JTextField final_price_txt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

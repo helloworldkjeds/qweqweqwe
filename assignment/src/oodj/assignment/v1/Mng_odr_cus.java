@@ -99,7 +99,9 @@ public class Mng_odr_cus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_odr_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_odr_butActionPerformed
-        // TODO add your handling code here:
+        Add_odr Ao = new Add_odr();
+        Ao.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_add_odr_butActionPerformed
 
     /**

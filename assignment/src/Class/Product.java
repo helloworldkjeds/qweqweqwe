@@ -5,8 +5,11 @@
  */
 package Class;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,7 +17,11 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import oodj.assignment.v1.Add_odr;
 
 /**
  *
@@ -60,8 +67,24 @@ public class Product {
         this.pdt_price = pdt_price;
     }
     
+    public double calculate_final_price(double pdt_Price,String pdt_Ctgy){
+        double final_price = 0;
+        Product pdt = new Product();
+        pdt.set_pdt_price(pdt_Price);
+        pdt.set_pdt_ctgy(pdt_Ctgy);
+        if (pdt.get_pdt_ctgy() == "Non-fragile"){
+            final_price = pdt.get_pdt_price() + (pdt.get_pdt_price() * 0.05);  
+        }
+        else if (pdt.get_pdt_ctgy() == "Fragile")
+            final_price = pdt.get_pdt_price() + (pdt.get_pdt_price() * 0.1);
+        System.out.println(final_price);
+        
+        return final_price;
+        
+    }
     
-    public void add_product(String pdt_name,int pdt_qtt,double pdt_price,String pdt_ctgy){
+    
+    public void add_product(String pdt_Name,int pdt_Qtt,double pdt_final_Price,String pdt_Ctgy){
         
         LocalDate localDate = LocalDate.now();
         //System.out.println(DateTimeFormatter.ofPattern("dd").format(localDate));
@@ -79,10 +102,10 @@ public class Product {
             PrintWriter pw = new PrintWriter(bw);
 
             pw.println(pdt_id_no + "," +
-                    pdt_name + "," +
-                    pdt_qtt + "," +
-                    pdt_price + ","+ 
-                    pdt_ctgy);
+                    pdt_Name + "," +
+                    pdt_Qtt + "," +
+                    pdt_final_Price + ","+ 
+                    pdt_Ctgy);
 
             pw.flush();
             pw.close();
@@ -92,7 +115,13 @@ public class Product {
             JOptionPane.showMessageDialog(null,"Invalid Product Details","Product register Error",JOptionPane.ERROR_MESSAGE);
         }
     }
-}
+
+    
+    public void show_pdt_table(){
+        
+        
+    }
+  } 
         
         
         
