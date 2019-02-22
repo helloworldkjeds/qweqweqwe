@@ -7,6 +7,8 @@ package oodj.assignment.v1;
 
 import Class.Product;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 /**
  *
@@ -97,6 +99,11 @@ public class Add_product extends javax.swing.JFrame {
         final_price_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 final_price_txtActionPerformed(evt);
+            }
+        });
+        final_price_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                final_price_txtKeyTyped(evt);
             }
         });
 
@@ -222,22 +229,67 @@ public class Add_product extends javax.swing.JFrame {
     }//GEN-LAST:event_crm_butActionPerformed
 
     private void final_price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_final_price_txtActionPerformed
-        
-        
+        /*
+        Product pdt = new Product();
+        double pdt_Price = Double.parseDouble(price_txt.getText());
+        String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
+        DocumentListener finalpriceListener = new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                final_price_calculation();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                final_price_calculation();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                final_price_calculation();
+            }
+            public void final_price_calculation(){
+                try{
+                    double pdt_Price = Double.parseDouble(price_txt.getText());
+                    double final_price = 0;
+                    
+                    if (pdt_Ctgy == "Non-fragile"){
+                        final_price = pdt_Price + (pdt_Price * 0.05);  
+                    }
+                    else if (pdt_Ctgy == "Fragile")
+                        final_price = pdt_Price + (pdt_Price * 0.1);  
+                    
+                    System.out.println(final_price);
+                    
+                    
+                    final_price_txt.setText(String.valueOf(final_price));    
+                    
+                }catch (NumberFormatException nfe){
+                    System.out.println("Invalid number(s) provided");
+                }
+            }
+        };
+        price_txt.getDocument().addDocumentListener(finalpriceListener);
+        */
     }//GEN-LAST:event_final_price_txtActionPerformed
 
     private void price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_price_txtActionPerformed
-        
-        
+
     }//GEN-LAST:event_price_txtActionPerformed
 
     private void cal_final_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_final_price_butActionPerformed
+        Product pdt = new Product();
         double pdt_Price = Double.parseDouble(price_txt.getText());
         String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
-        Product pdt = new Product();
         double final_price = pdt.calculate_final_price(pdt_Price, pdt_Ctgy);
-        final_price_txt.setText(String.valueOf(final_price));
+        final_price_txt.setText(String.valueOf(final_price));    
+        
+
     }//GEN-LAST:event_cal_final_price_butActionPerformed
+
+    private void final_price_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_final_price_txtKeyTyped
+        
+    }//GEN-LAST:event_final_price_txtKeyTyped
 
     /**
      * @param args the command line arguments
@@ -265,7 +317,17 @@ public class Add_product extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Add_product.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

@@ -20,6 +20,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import oodj.assignment.v1.Add_odr;
 
@@ -66,8 +67,9 @@ public class Product {
     public void set_pdt_price(double pdt_price){
         this.pdt_price = pdt_price;
     }
-    
+        
     public double calculate_final_price(double pdt_Price,String pdt_Ctgy){
+        
         double final_price = 0;
         Product pdt = new Product();
         pdt.set_pdt_price(pdt_Price);
@@ -82,7 +84,20 @@ public class Product {
         return final_price;
         
     }
-    
+    public double calculate_total_price(double pdt_Price,int pdt_Qtt){
+        
+        double total_price = 0;
+        Product pdt = new Product();
+        pdt.set_pdt_price(pdt_Price);
+        
+        pdt.set_pdt_qtt(pdt_Qtt);
+        total_price = pdt.get_pdt_price() * pdt.get_pdt_qtt();  
+        
+        System.out.println(total_price);
+        
+        return total_price;
+        
+    }
     
     public void add_product(String pdt_Name,int pdt_Qtt,double pdt_final_Price,String pdt_Ctgy){
         
@@ -117,10 +132,7 @@ public class Product {
     }
 
     
-    public void show_pdt_table(){
-        
-        
-    }
+    
   } 
         
         
