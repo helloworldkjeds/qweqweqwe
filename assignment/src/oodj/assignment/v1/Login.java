@@ -168,8 +168,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Invalid login!");
             }else{
                 JOptionPane.showMessageDialog(null,"You logged in as: " + Position);
-                Admin_Menu am = new Admin_Menu();
-                am.setVisible(true);
+                
                 this.setVisible(false);
                 
             }

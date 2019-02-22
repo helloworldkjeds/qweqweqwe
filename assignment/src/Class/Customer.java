@@ -138,6 +138,13 @@ public class Customer extends User{
                         Newaddress + "," +
                         cus.get_position());
                         System.out.println("update");
+                        Sc.Password = Newpassword;
+                        
+                        Sc.Firstname = Newfirstname;
+                        Sc.Lastname = Newlastname;
+                        Sc.Contactno = Newcontact_no;
+                        Sc.Address = Newaddress;
+                        
                     }
                     else{
                         pw.println(Email + "," +

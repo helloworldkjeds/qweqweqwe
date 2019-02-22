@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import oodj.assignment.v1.Admin_Menu;
-
+import oodj.assignment.v1.Cus_Menu;
 
 /**
  *
@@ -236,6 +236,7 @@ public class User extends DataObject{
                     String[] data = record.split("\\" + Seperator);
                     if (data[0].equals(this.get_email()) && data[1].equals(this.get_pwd())){
                         found = true;
+                        
                         this.set_id_no(data[2]);
                         this.set_firstname(data[3]);
                         this.set_lastname(data[4]);
@@ -250,6 +251,8 @@ public class User extends DataObject{
                         Sc.Contactno = this.get_contact_no();
                         Sc.Address = this.get_address();
                         Sc.Position = this.get_position();
+                        Admin_Menu am = new Admin_Menu();
+                        am.setVisible(true);
                         break;
                     }
                 }
@@ -277,6 +280,8 @@ public class User extends DataObject{
                         Sc.Contactno = this.get_contact_no();
                         Sc.Address = this.get_address();
                         Sc.Position = this.get_position();
+                        Cus_Menu cus = new Cus_Menu();
+                        cus.setVisible(true);
                         break;
                     }
                 }

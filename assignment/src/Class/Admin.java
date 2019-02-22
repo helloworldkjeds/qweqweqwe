@@ -156,6 +156,14 @@ public class Admin extends User{
                         Newaddress + "," +
                         admin.get_position());
                         System.out.println("update");
+                        
+                        Sc.Password = Newpassword;
+                        
+                        Sc.Firstname = Newfirstname;
+                        Sc.Lastname = Newlastname;
+                        Sc.Contactno = Newcontact_no;
+                        Sc.Address = Newaddress;
+                        
                     }
                     else{
                         pw.println(Email + "," +
@@ -175,6 +183,8 @@ public class Admin extends User{
                 oldFile.delete();
                 File dump = new File("admintxt.txt");
                 newFile.renameTo(dump);
+                
+                
             }
             catch(Exception e){
             

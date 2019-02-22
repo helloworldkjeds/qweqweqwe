@@ -247,9 +247,17 @@ public class Mng_profile extends javax.swing.JFrame {
     }//GEN-LAST:event_firstname_txtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-        Admin_Menu am = new Admin_Menu();
-        am.setVisible(true);
-        this.setVisible(false);
+        StaticClass Sc = new StaticClass();
+        if (Sc.Position == "Admin"){
+            Admin_Menu am = new Admin_Menu();
+            am.setVisible(true);
+            this.setVisible(false);}
+        else if (Sc.Position =="Customer"){
+            Cus_Menu cus = new Cus_Menu();
+            cus.setVisible(true);
+            this.setVisible(false);}
+    
+        
     }//GEN-LAST:event_back_butActionPerformed
 
     private void update_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_butActionPerformed
