@@ -1,15 +1,3 @@
-PD15224,Chair,1,12.9,Non-fragile
-PD62225,Table,12,23.9,Non-fragile
-PD83222,Table,12,23.9,Non-fragile
-PD81223,Table,12,23.9,Non-fragile
-PD48227,Table,12,23.9,Non-fragile
-PD08227,Table,12,23.9,Non-fragile
-PD71220,Table,12,23.9,Non-fragile
-PD15228,Table,12,23.9,Non-fragile
-PD75224,Table,12,23.9,Non-fragile
-PD78222,ewqewq,123,123.0,Non-fragile
-PD27223,null,0,12.6,null
-PD22227,null,0,0.0,null
-PD67227,null,0,0.0,null
-PD68220,zxc,12,3.15,Non-fragile
-PD83227,zxc,12,3.15,Fragile
+PD77230,chair,3,41.89,Non-fragile
+PD32234,Table,5,62.89,Non-fragile
+PD52233,Glass Bottle,4,20.89,Fragile

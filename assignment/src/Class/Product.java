@@ -5,24 +5,15 @@
  */
 package Class;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableModel;
-import oodj.assignment.v1.Add_odr;
 
 /**
  *
@@ -77,12 +68,15 @@ public class Product {
         if (pdt.get_pdt_ctgy() == "Non-fragile"){
             final_price = pdt.get_pdt_price() + (pdt.get_pdt_price() * 0.05);  
         }
-        else if (pdt.get_pdt_ctgy() == "Fragile")
+        else if (pdt.get_pdt_ctgy() == "Fragile"){
             final_price = pdt.get_pdt_price() + (pdt.get_pdt_price() * 0.1);
+        }
+        DecimalFormat df2 = new DecimalFormat(".##");
+        String totalprice_String = df2.format(final_price);
+        final_price = Double.parseDouble(totalprice_String);
         System.out.println(final_price);
         
         return final_price;
-        
     }
     public double calculate_total_price(double pdt_Price,int pdt_Qtt){
         

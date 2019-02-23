@@ -262,7 +262,11 @@ public class Add_odr extends javax.swing.JFrame {
         pdt_qtt_txt.setText(model.getValueAt(selectedRowIndex, 2).toString());
         pdt_prc_txt.setText(model.getValueAt(selectedRowIndex, 3).toString());
         pdt_ctg.setText(model.getValueAt(selectedRowIndex, 4).toString());
-        
+        Product pdt = new Product();
+        double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
+        int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
+        double total_price = pdt.calculate_total_price(pdt_Price, pdt_Qtt);
+        ttl_pricetxt.setText(String.valueOf(total_price));    
         
     }//GEN-LAST:event_ProductTableMouseClicked
 
@@ -271,11 +275,7 @@ public class Add_odr extends javax.swing.JFrame {
     }//GEN-LAST:event_add_cart_butActionPerformed
 
     private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
-        Product pdt = new Product();
-        double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
-        int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
-        double total_price = pdt.calculate_total_price(pdt_Price, pdt_Qtt);
-        ttl_pricetxt.setText(String.valueOf(total_price));    
+        
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 
     /**
