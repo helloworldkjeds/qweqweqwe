@@ -286,10 +286,11 @@ public class Add_odr extends javax.swing.JFrame {
         OrderItem oi = new OrderItem();
         String pdt_ID = productid_txt.getText();
         String pdt_Name = pdt_name_txt.getText();
+        double unit_Price = Double.parseDouble(pdt_prc_txt.getText());
         total_Price = Double.parseDouble(ttl_pricetxt.getText());
         int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
         String pdt_Ctgy = pdt_ctg.getText();
-        oi.add_order_item(pdt_ID, pdt_Name, pdt_Qtt, total_Price, pdt_Ctgy);
+        oi.add_order_item(pdt_ID, pdt_Name, pdt_Qtt, unit_Price,total_Price, pdt_Ctgy);
         
     
     }//GEN-LAST:event_add_cart_butActionPerformed

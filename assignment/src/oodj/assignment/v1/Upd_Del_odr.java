@@ -5,7 +5,15 @@
  */
 package oodj.assignment.v1;
 
+import Class.OrderItem;
 import Class.Product;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -50,6 +58,8 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         odr_itemtxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        cus_idtxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,11 +68,11 @@ public class Upd_Del_odr extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Order Item ID", "Customer ID", "Product ID", "Product Name", "Product Quantity", "Total Price", "Product Category"
+                "Order Item ID", "Customer ID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Total Price", "Product Category"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -120,19 +130,24 @@ public class Upd_Del_odr extends javax.swing.JFrame {
 
         odr_itemtxt.setEditable(false);
 
+        jLabel7.setText("Customer ID:");
+
+        cus_idtxt.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(364, 364, 364)
+                .addGap(460, 460, 460)
                 .addComponent(edit_odr_item, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(440, Short.MAX_VALUE))
+                .addContainerGap(397, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
                     .addComponent(jLabel1)
                     .addComponent(pdt_id_lab)
                     .addComponent(jLabel2)
@@ -148,25 +163,30 @@ public class Upd_Del_odr extends javax.swing.JFrame {
                     .addComponent(pdt_prc_txt)
                     .addComponent(pdt_ctg)
                     .addComponent(ttl_pricetxt)
-                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                    .addComponent(odr_itemtxt))
-                .addGap(56, 56, 56))
+                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(odr_itemtxt)
+                    .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(show_odr_item_but, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(439, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addContainerGap(389, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pdt_id_lab)
                     .addComponent(productid_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -192,15 +212,15 @@ public class Upd_Del_odr extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(edit_odr_item, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE)
+                    .addContainerGap(58, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(show_odr_item_but, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(13, 13, 13)))
@@ -210,14 +230,35 @@ public class Upd_Del_odr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void show_odr_item_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_odr_item_butActionPerformed
-        DefaultTableModel model = (DefaultTableModel)OrderItemTable.getModel();
-        int selectedRowIndex = OrderItemTable.getSelectedRow();
-        productid_txt.setText(model.getValueAt(selectedRowIndex, 0).toString());
-        pdt_name_txt.setText(model.getValueAt(selectedRowIndex, 1).toString());
-        pdt_qtt_txt.setText(model.getValueAt(selectedRowIndex, 2).toString());
-        pdt_prc_txt.setText(model.getValueAt(selectedRowIndex, 3).toString());
-        pdt_ctg.setText(model.getValueAt(selectedRowIndex, 4).toString());
-        ttl_pricetxt.setText(String.valueOf(""));    
+        
+        // choose userid
+        File file = new File("orderitemtxt.txt");
+        OrderItem oi = new OrderItem();
+        
+        boolean checkorder = oi.select_cus_id();;
+        if (!checkorder){
+            JOptionPane.showMessageDialog(null,"You have not order any product!");
+        }else{
+            
+            
+            try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            DefaultTableModel model = (DefaultTableModel)OrderItemTable.getModel();
+            Object[] lines = br.lines().toArray();    
+            model.fireTableDataChanged();
+            
+
+            for(int i = 0; i < lines.length; i++){
+                String[] row = lines[i].toString().split(",");
+                model.insertRow(i, row);
+
+            }
+
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Add_odr.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_show_odr_item_butActionPerformed
 
     private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
@@ -270,6 +311,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JButton cal_ttl_price_but;
+    private javax.swing.JTextField cus_idtxt;
     private javax.swing.JButton edit_odr_item;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -278,6 +320,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField odr_itemtxt;
     private javax.swing.JTextField pdt_ctg;

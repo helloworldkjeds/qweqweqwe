@@ -65,6 +65,11 @@ public class Mng_odr_cus extends javax.swing.JFrame {
         });
 
         jButton1.setText("CheckOut");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -130,8 +135,16 @@ public class Mng_odr_cus extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void edt_odr_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_odr_butActionPerformed
-        
+        Upd_Del_odr udo = new Upd_Del_odr();
+        udo.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_edt_odr_butActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CheckOut co = new CheckOut();
+        co.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

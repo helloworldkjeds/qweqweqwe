@@ -5,26 +5,31 @@
  */
 package Class;
 
+
 import java.io.BufferedWriter;
 import java.io.File;
+
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Random;
+
 import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author New
  */
-public class OrderItem {
+public class OrderItem extends DataObject{
     protected String orderitem_id;
-    
+    private final String OrderItemFile = "orderitemtxt.txt";
     
     public OrderItem(){}
-    private final String OrderItemFile = "orderitemtxt.txt";
-    public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double total_Price,String pdt_Ctgy){
+    
+    public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
         
         LocalDate localDate = LocalDate.now();
         //System.out.println(DateTimeFormatter.ofPattern("dd").format(localDate));
@@ -47,6 +52,7 @@ public class OrderItem {
                     + pdt_ID + "," 
                     + pdt_Name + "," 
                     + pdt_Qtt + "," 
+                    + unit_Price + "," +
                     + total_Price + "," + 
                     pdt_Ctgy);
 
@@ -58,4 +64,22 @@ public class OrderItem {
             JOptionPane.showMessageDialog(null,"Add to cart fail!","Add to cart Error",JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    public boolean select_cus_id(){
+        boolean found = false;
+        
+        super.da.setTarget_file(new File(OrderItemFile));
+        ArrayList<String> list = super.da.getAll();
+        if (list != null){
+            for (String record: list){
+                String[] data = record.split("\\" + Seperator);
+                Customer cus = new Customer();
+                if (data[1].equals(cus.get_id_no())){
+                    found = true;
+                }
+            }
+        }
+        return found;
+    }
+    
 }

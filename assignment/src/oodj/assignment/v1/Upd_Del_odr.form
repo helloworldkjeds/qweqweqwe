@@ -23,16 +23,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="364" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="460" max="-2" attributes="0"/>
               <Component id="edit_odr_item" min="-2" pref="188" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton2" min="-2" pref="138" max="-2" attributes="0"/>
-              <EmptySpace pref="440" max="32767" attributes="0"/>
+              <EmptySpace pref="397" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="pdt_id_lab" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -49,19 +50,20 @@
                   <Component id="pdt_prc_txt" alignment="0" max="32767" attributes="0"/>
                   <Component id="pdt_ctg" alignment="0" max="32767" attributes="0"/>
                   <Component id="ttl_pricetxt" alignment="0" max="32767" attributes="0"/>
-                  <Component id="cal_ttl_price_but" alignment="0" pref="189" max="32767" attributes="0"/>
+                  <Component id="cal_ttl_price_but" alignment="0" max="32767" attributes="0"/>
                   <Component id="odr_itemtxt" max="32767" attributes="0"/>
+                  <Component id="cus_idtxt" min="-2" pref="189" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="show_odr_item_but" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" alignment="0" min="-2" pref="703" max="-2" attributes="0"/>
+                      <Component id="show_odr_item_but" min="-2" pref="134" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="806" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="439" max="32767" attributes="0"/>
+                  <EmptySpace pref="389" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -69,12 +71,17 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="odr_itemtxt" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cus_idtxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pdt_id_lab" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="productid_txt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,7 +113,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="cal_ttl_price_but" min="-2" pref="56" max="-2" attributes="0"/>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
+              <EmptySpace pref="114" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="edit_odr_item" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
@@ -114,9 +121,9 @@
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="462" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace pref="58" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="494" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="show_odr_item_but" min="-2" pref="52" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -136,18 +143,24 @@
         <Component class="javax.swing.JTable" name="OrderItemTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="0">
+              <Table columnCount="8" rowCount="0">
                 <Column editable="true" title="Order Item ID" type="java.lang.String"/>
                 <Column editable="true" title="Customer ID" type="java.lang.String"/>
                 <Column editable="true" title="Product ID" type="java.lang.Object"/>
                 <Column editable="true" title="Product Name" type="java.lang.Object"/>
                 <Column editable="true" title="Product Quantity" type="java.lang.Object"/>
+                <Column editable="true" title="Unit Price" type="java.lang.Object"/>
                 <Column editable="true" title="Total Price" type="java.lang.Object"/>
                 <Column editable="true" title="Product Category" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -284,6 +297,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="odr_itemtxt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Customer ID:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cus_idtxt">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
       </Properties>
