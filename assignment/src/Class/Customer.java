@@ -18,9 +18,7 @@ import java.util.Scanner;
  * @author New
  */
 public class Customer extends User{
-    public Customer(){
-        
-    }
+    public Customer(){}
     
     
     StaticClass Sc = new StaticClass();

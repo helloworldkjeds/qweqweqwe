@@ -5,6 +5,8 @@
  */
 package oodj.assignment.v1;
 
+
+import Class.OrderItem;
 import Class.Product;
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,6 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -97,9 +100,9 @@ public class Add_odr extends javax.swing.JFrame {
 
         jLabel2.setText("Product Name:");
 
-        jLabel3.setText("Product Quantity:");
+        jLabel3.setText("Product Quantity Available:");
 
-        jLabel4.setText("Price:");
+        jLabel4.setText("Product Price:");
 
         jLabel5.setText("Product Category:");
 
@@ -113,7 +116,7 @@ public class Add_odr extends javax.swing.JFrame {
 
         jLabel6.setText("Total Price:");
 
-        add_cart_but.setText("Add to cart");
+        add_cart_but.setText("Add Order Item");
         add_cart_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_cart_butActionPerformed(evt);
@@ -149,32 +152,40 @@ public class Add_odr extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 986, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(351, 351, 351)
-                                .addComponent(show_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(pdt_id_lab)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(productid_txt)
-                            .addComponent(pdt_name_txt)
-                            .addComponent(pdt_qtt_txt)
-                            .addComponent(pdt_prc_txt)
-                            .addComponent(pdt_ctg)
-                            .addComponent(ttl_pricetxt, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                            .addComponent(add_cart_but, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                            .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(show_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 49, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(44, 44, 44)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(pdt_id_lab)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6))))
+                                .addGap(74, 74, 74)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(productid_txt)
+                                    .addComponent(pdt_name_txt)
+                                    .addComponent(pdt_qtt_txt)
+                                    .addComponent(pdt_prc_txt)
+                                    .addComponent(pdt_ctg)
+                                    .addComponent(ttl_pricetxt)
+                                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(30, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -183,7 +194,8 @@ public class Add_odr extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pdt_id_lab)
@@ -207,18 +219,15 @@ public class Add_odr extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cal_ttl_price_but)
-                        .addGap(62, 62, 62)
-                        .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE))
+                            .addComponent(jLabel6))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(show_pdt_but, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                    .addComponent(back_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(52, 52, 52))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(show_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -246,7 +255,7 @@ public class Add_odr extends javax.swing.JFrame {
             
             for(int i = 0; i < lines.length; i++){
                 String[] row = lines[i].toString().split(",");
-                model.addRow(row);
+                model.insertRow(i, row);
             }
             
         } catch (FileNotFoundException ex) {
@@ -262,20 +271,35 @@ public class Add_odr extends javax.swing.JFrame {
         pdt_qtt_txt.setText(model.getValueAt(selectedRowIndex, 2).toString());
         pdt_prc_txt.setText(model.getValueAt(selectedRowIndex, 3).toString());
         pdt_ctg.setText(model.getValueAt(selectedRowIndex, 4).toString());
+        ttl_pricetxt.setText(String.valueOf(""));    
+        
+    }//GEN-LAST:event_ProductTableMouseClicked
+
+    private void add_cart_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cart_butActionPerformed
+        double total_Price;
+        try{
+            total_Price = Double.parseDouble(ttl_pricetxt.getText());
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Please calculate total price!");
+        }
+        OrderItem oi = new OrderItem();
+        String pdt_ID = productid_txt.getText();
+        String pdt_Name = pdt_name_txt.getText();
+        total_Price = Double.parseDouble(ttl_pricetxt.getText());
+        int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
+        String pdt_Ctgy = pdt_ctg.getText();
+        oi.add_order_item(pdt_ID, pdt_Name, pdt_Qtt, total_Price, pdt_Ctgy);
+        
+    
+    }//GEN-LAST:event_add_cart_butActionPerformed
+
+    private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
         Product pdt = new Product();
         double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
         int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
         double total_price = pdt.calculate_total_price(pdt_Price, pdt_Qtt);
         ttl_pricetxt.setText(String.valueOf(total_price));    
-        
-    }//GEN-LAST:event_ProductTableMouseClicked
-
-    private void add_cart_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_cart_butActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_cart_butActionPerformed
-
-    private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
-        
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 
     /**
