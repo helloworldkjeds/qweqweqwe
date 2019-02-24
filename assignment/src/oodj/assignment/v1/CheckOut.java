@@ -6,6 +6,7 @@
 package oodj.assignment.v1;
 
 import Class.Customer;
+import Class.Order;
 import Class.OrderItem;
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,7 +30,10 @@ public class CheckOut extends javax.swing.JFrame {
     /**
      * Creates new form CheckOut
      */
-    protected double total;
+    
+    
+    protected int orderID;
+    protected double grand_tll;
     public CheckOut() {
         initComponents();
         
@@ -65,6 +69,7 @@ public class CheckOut extends javax.swing.JFrame {
         check_out_but = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         grand_ttltxt = new javax.swing.JTextField();
+        grand_tlltxt = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,6 +101,15 @@ public class CheckOut extends javax.swing.JFrame {
 
         jLabel2.setText("GRAND TOTAL:");
 
+        grand_ttltxt.setEditable(false);
+
+        grand_tlltxt.setText("Show Grand Total");
+        grand_tlltxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grand_tlltxtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,20 +118,24 @@ public class CheckOut extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(546, 546, 546))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(grand_ttltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(check_out_but, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(check_out_but, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                            .addComponent(grand_tlltxt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(116, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,11 +144,12 @@ public class CheckOut extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(grand_ttltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(grand_ttltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(grand_tlltxt))
+                .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(check_out_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(back_but, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
@@ -147,12 +166,15 @@ public class CheckOut extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void check_out_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_out_butActionPerformed
+        Customer cus = new Customer();
+       
+        Order odr = new Order();
         OrderItem oi = new OrderItem();
-        int order_id = oi.new_order_id();
+        odr.set_order_id(oi.new_order_id());
         DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
         int total_item_qtt = OrderItemTable.getRowCount();
         for (int i=0; i<OrderItemTable.getRowCount(); i++){
-            String cus_ID=model.getValueAt(i, 0).toString();
+            cus.set_id_no(model.getValueAt(i, 0).toString());
             String pdt_ID=model.getValueAt(i, 1).toString();
             String pdt_Name=model.getValueAt(i, 2).toString();
             int pdt_Qtt=Integer.parseInt(model.getValueAt(i, 3).toString());
@@ -160,31 +182,35 @@ public class CheckOut extends javax.swing.JFrame {
             double total_Price=Double.parseDouble(model.getValueAt(i, 5).toString());
             String pdt_Ctgy = model.getValueAt(i, 6).toString();
             try {
-                oi.insert_into_orderitem(order_id,cus_ID,pdt_ID, pdt_Name, pdt_Price, total_Price, pdt_Qtt,pdt_Ctgy);
-                System.out.println(order_id);
+                oi.insert_into_orderitem(odr.get_order_id(),cus.get_id_no(),pdt_ID, pdt_Name, pdt_Price, total_Price, pdt_Qtt,pdt_Ctgy);
+                System.out.println(odr.get_order_id());
             } catch (IOException ex) {
                 Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
             }
-        /*
+        }
         try{
-                odr.insert_order(order_id, cus_ID, total_item_qtt, total_Price);
-            } catch (IOException ex) {
-                Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
-            }    
-            JOptionPane.showMessageDialog(null,"Successfully Create Order.");
-        }
-        */
+            odr.insert_into_order(odr.get_order_id(), cus.get_id_no(), total_item_qtt, grand_tll);
+        } catch (IOException ex) {
+            Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+            
         
-        }
+        
+        
+        
         
     }//GEN-LAST:event_check_out_butActionPerformed
+
+    private void grand_tlltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grand_tlltxtActionPerformed
+        cal_grand_tll();
+    }//GEN-LAST:event_grand_tlltxtActionPerformed
     public void cal_grand_tll(){
-        total=0;
+        grand_tll=0;
         for(int i =0; i<OrderItemTable.getRowCount();i++){
-            total = total + Double.parseDouble(OrderItemTable.getValueAt(i, 5).toString());
+            grand_tll = grand_tll + Double.parseDouble(OrderItemTable.getValueAt(i, 5).toString());
         }
         
-        grand_ttltxt.setText(Double.toString(total));
+        grand_ttltxt.setText(Double.toString(grand_tll));
     }
     /**
      * @param args the command line arguments
@@ -225,6 +251,7 @@ public class CheckOut extends javax.swing.JFrame {
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JButton back_but;
     private javax.swing.JButton check_out_but;
+    private javax.swing.JButton grand_tlltxt;
     private javax.swing.JTextField grand_ttltxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

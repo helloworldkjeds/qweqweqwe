@@ -29,14 +29,16 @@ public class Upd_Del_odr extends javax.swing.JFrame {
      */
     public Upd_Del_odr() {
         initComponents();
-        OrderItem oi = new OrderItem();
-        boolean checkorder = oi.select_cus_id();
+        
+        
+        Customer cus = new Customer();
+        boolean checkorder = cus.select_cus_id();
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"You have not order any product!");
         }else{
             DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
             OrderItem odr = new OrderItem();
-            ArrayList<Object[]> al = odr.view_order_item(model, "orderitemtxt.txt");
+            ArrayList<Object[]> al = odr.view_cart_item(model, "cartitemtxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }

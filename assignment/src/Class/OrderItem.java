@@ -36,8 +36,18 @@ public class OrderItem{
     
     private final String CartFile = "cartitemtxt.txt";
     private final String OrderItemFile = "orderitemtxt.txt";
+    
+    protected int order_id;
     public OrderItem(){}
     
+    public int get_order_id(){
+        return order_id;
+    }
+    
+    
+    public void set_order_id(int order_id){
+        this.order_id = order_id;
+    }
     
     
     public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
@@ -105,13 +115,12 @@ public class OrderItem{
     
     public int new_order_id(){
         FileInputStream in;
-            
         try {
             in = new FileInputStream(OrderItemFile);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
  
             String strLine = null, tmp;
-            int order_id;
+            
             
             if (br.readLine() == null){
                 
@@ -137,6 +146,7 @@ public class OrderItem{
             Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
+        
     }
     
     public void insert_into_orderitem(int order_ID, String cus_ID, String pdt_ID, String pdt_Name, double pdt_Price, double total_Price, int pdt_Qtt,String pdt_Ctgy) throws IOException{
@@ -150,4 +160,6 @@ public class OrderItem{
         fw.close();
         
     }
+    
+    
 }
