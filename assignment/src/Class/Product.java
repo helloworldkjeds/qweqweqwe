@@ -8,12 +8,16 @@ package Class;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -109,7 +113,7 @@ public class Product {
             FileWriter fileWritter = new FileWriter(writefile,true);
             BufferedWriter bw = new BufferedWriter(fileWritter);
             PrintWriter pw = new PrintWriter(bw);
-
+            
             pw.println(pdt_id_no + "," +
                     pdt_Name + "," +
                     pdt_Qtt + "," +
@@ -124,7 +128,30 @@ public class Product {
             JOptionPane.showMessageDialog(null,"Invalid Product Details","Product register Error",JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    public ArrayList<Object[]> view_product(DefaultTableModel tb, String fname){
+        Scanner Sc = new Scanner(System.in);
+        Object[] row =new Object[]{};
+        ArrayList al = new ArrayList<Object[]>(); 
+        try
+        {
+            File file2Read = new File(fname);
+            Sc = new Scanner(file2Read);            
+        
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] Lgn = Line.split(",");
+                 row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};  
+                 al.add(row);
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
+        return al;
+    }
     
     
   } 

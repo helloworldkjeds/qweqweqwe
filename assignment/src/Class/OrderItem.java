@@ -10,13 +10,16 @@ import java.io.BufferedWriter;
 import java.io.File;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -30,7 +33,7 @@ public class OrderItem extends DataObject{
     public OrderItem(){}
     
     public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
-        
+        /*
         LocalDate localDate = LocalDate.now();
         //System.out.println(DateTimeFormatter.ofPattern("dd").format(localDate));
         Random random = new Random();
@@ -39,16 +42,15 @@ public class OrderItem extends DataObject{
         int random_no3 = random.nextInt(9);
         //String temp_id_no="";
         //boolean found=false;
-        orderitem_id = ("OI" + random_no1 + random_no2  + DateTimeFormatter.ofPattern("dd").format(localDate) + random_no3);
+        */
         try{    
             
             File writefile = new File(OrderItemFile);
             FileWriter fileWritter = new FileWriter(writefile,true);
             BufferedWriter bw = new BufferedWriter(fileWritter);
             PrintWriter pw = new PrintWriter(bw);
-            Customer cus = new Customer();    
-            pw.println(orderitem_id + "," 
-                    + cus.get_id_no() + "," 
+            Customer cus = new Customer();
+            pw.println(cus.get_id_no() + "," 
                     + pdt_ID + "," 
                     + pdt_Name + "," 
                     + pdt_Qtt + "," 
@@ -67,14 +69,13 @@ public class OrderItem extends DataObject{
     
     public boolean select_cus_id(){
         boolean found = false;
-        
         super.da.setTarget_file(new File(OrderItemFile));
         ArrayList<String> list = super.da.getAll();
         if (list != null){
             for (String record: list){
                 String[] data = record.split("\\" + Seperator);
                 Customer cus = new Customer();
-                if (data[1].equals(cus.get_id_no())){
+                if (data[0].equals(cus.get_id_no())){
                     found = true;
                 }
             }
@@ -82,4 +83,28 @@ public class OrderItem extends DataObject{
         return found;
     }
     
+    public ArrayList<Object[]> view_order_item(DefaultTableModel tb, String fname){
+        Scanner Sc = new Scanner(System.in);
+        Object[] row =new Object[]{};
+        ArrayList al = new ArrayList<Object[]>(); 
+        try
+        {
+            File file2Read = new File(fname);
+            Sc = new Scanner(file2Read);            
+        
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] Lgn = Line.split(",");
+                 row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4],Lgn[5],Lgn[6]};  
+                 al.add(row);
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
+        return al;
+    }
 }

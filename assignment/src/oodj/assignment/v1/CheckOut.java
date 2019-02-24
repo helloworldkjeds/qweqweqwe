@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -28,6 +29,21 @@ public class CheckOut extends javax.swing.JFrame {
      */
     public CheckOut() {
         initComponents();
+        OrderItem oi = new OrderItem();
+
+        boolean checkorder = oi.select_cus_id();
+        if (!checkorder){
+            JOptionPane.showMessageDialog(null,"You have not order any product!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
+            OrderItem odr = new OrderItem();
+            ArrayList<Object[]> al = odr.view_order_item(model, "orderitemtxt.txt");
+            for(int i =0; al.size()>i;i++){
+                model.addRow(al.get(i));
+            }
+        }
+        
+        
     }
 
     /**
@@ -43,6 +59,7 @@ public class CheckOut extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         OrderItemTable = new javax.swing.JTable();
         show_odr_item_but = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,23 +70,22 @@ public class CheckOut extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Order Item ID", "Customer ID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Total Price", "Product Category"
+                "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Total Price", "Product Category"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane2.setViewportView(OrderItemTable);
 
         show_odr_item_but.setText("Show Order Item");
         show_odr_item_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 show_odr_item_butActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("CheckOut");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -81,9 +97,13 @@ public class CheckOut extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(show_odr_item_but, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(184, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(show_odr_item_but, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -93,7 +113,9 @@ public class CheckOut extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(show_odr_item_but, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(show_odr_item_but, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -102,33 +124,14 @@ public class CheckOut extends javax.swing.JFrame {
 
     private void show_odr_item_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_odr_item_butActionPerformed
 
-        File file = new File("orderitemtxt.txt");
-        OrderItem oi = new OrderItem();
-
-        boolean checkorder = oi.select_cus_id();;
-        if (!checkorder){
-            JOptionPane.showMessageDialog(null,"You have not order any product!");
-        }else{
-
-            try {
-                FileReader fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
-                DefaultTableModel model = (DefaultTableModel)OrderItemTable.getModel();
-                Object[] lines = br.lines().toArray();
-                model.fireTableDataChanged();
-
-                for(int i = 0; i < lines.length; i++){
-                    String[] row = lines[i].toString().split(",");
-                    model.insertRow(i, row);
-
-                }
-
-            } catch (FileNotFoundException ex) { 
-                Logger.getLogger(Add_odr.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        
+        
         
     }//GEN-LAST:event_show_odr_item_butActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +170,7 @@ public class CheckOut extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton show_odr_item_but;
