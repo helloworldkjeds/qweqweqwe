@@ -50,6 +50,7 @@ public class Login extends javax.swing.JFrame {
         register_but = new javax.swing.JButton();
         positon_lab = new javax.swing.JLabel();
         pos_combox = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,13 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,21 +101,24 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(login_lab)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(register_but))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(email_lab)
-                            .addComponent(password_lab)
-                            .addComponent(positon_lab))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(login_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pwd_txt)
-                            .addComponent(email_txt)
-                            .addComponent(pos_combox, 0, 250, Short.MAX_VALUE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(register_but)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                            .addComponent(jButton1))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(email_lab)
+                                .addComponent(password_lab)
+                                .addComponent(positon_lab))
+                            .addGap(29, 29, 29)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(login_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pwd_txt)
+                                .addComponent(email_txt)
+                                .addComponent(pos_combox, 0, 250, Short.MAX_VALUE)))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -132,7 +143,8 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(register_but))
+                            .addComponent(register_but)
+                            .addComponent(jButton1))
                         .addGap(61, 61, 61))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pos_combox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -195,6 +207,11 @@ public class Login extends javax.swing.JFrame {
     private void pos_comboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pos_comboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pos_comboxActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Exit JVM
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
             
@@ -236,6 +253,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel email_lab;
     private javax.swing.JTextField email_txt;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton login_but;
     private javax.swing.JLabel login_lab;
