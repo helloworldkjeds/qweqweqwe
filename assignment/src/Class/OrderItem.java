@@ -6,17 +6,23 @@
 package Class;
 
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -107,4 +113,38 @@ public class OrderItem extends DataObject{
         }
         return al;
     }
+    
+    public int newOrderID(){
+        FileInputStream in;
+        try {
+            in = new FileInputStream("OrderItem.txt");
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+ 
+            String strLine = null, tmp;
+            int order_id;
+            
+            if (br.readLine() == null){
+                
+                return 1;
+                
+            }
+            while ((tmp = br.readLine()) != null)
+            {
+               strLine = tmp;
+            }
+
+            String lastLine = strLine;
+            String[] lgn = lastLine.split(",");
+                
+            order_id = Integer.parseInt(lgn[0]) + 1;
+                
+            in.close();
+            return order_id;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        } catch (IOException ex) {
+            Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
 }
