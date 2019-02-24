@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -170,6 +171,20 @@ public class Customer extends User{
             
         
     }
-    
+    public boolean select_cus_id(){
+        boolean found = false;
+        super.da.setTarget_file(new File("cartitemtxt.txt"));
+        ArrayList<String> list = super.da.getAll();
+        if (list != null){
+            for (String record: list){
+                String[] data = record.split("\\" + Seperator);
+                Customer cus = new Customer();
+                if (data[0].equals(cus.get_id_no())){
+                    found = true;
+                }
+            }
+        }
+        return found;
+    }
 }
 

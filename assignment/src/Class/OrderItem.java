@@ -32,11 +32,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author New
  */
-public class OrderItem extends DataObject{
-    protected String orderitem_id;
-    private final String OrderItemFile = "orderitemtxt.txt";
+public class OrderItem{
     
+    private final String CartFile = "cartitemtxt.txt";
+    private final String OrderItemFile = "orderitemtxt.txt";
     public OrderItem(){}
+    
+    
     
     public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
         /*
@@ -51,11 +53,12 @@ public class OrderItem extends DataObject{
         */
         try{    
             
-            File writefile = new File(OrderItemFile);
+            File writefile = new File(CartFile);
             FileWriter fileWritter = new FileWriter(writefile,true);
             BufferedWriter bw = new BufferedWriter(fileWritter);
             PrintWriter pw = new PrintWriter(bw);
             Customer cus = new Customer();
+            
             pw.println(cus.get_id_no() + "," 
                     + pdt_ID + "," 
                     + pdt_Name + "," 
@@ -73,23 +76,9 @@ public class OrderItem extends DataObject{
         }
     }
     
-    public boolean select_cus_id(){
-        boolean found = false;
-        super.da.setTarget_file(new File(OrderItemFile));
-        ArrayList<String> list = super.da.getAll();
-        if (list != null){
-            for (String record: list){
-                String[] data = record.split("\\" + Seperator);
-                Customer cus = new Customer();
-                if (data[0].equals(cus.get_id_no())){
-                    found = true;
-                }
-            }
-        }
-        return found;
-    }
     
-    public ArrayList<Object[]> view_order_item(DefaultTableModel tb, String fname){
+    
+    public ArrayList<Object[]> view_cart_item(DefaultTableModel tb, String fname){
         Scanner Sc = new Scanner(System.in);
         Object[] row =new Object[]{};
         ArrayList al = new ArrayList<Object[]>(); 
@@ -114,10 +103,11 @@ public class OrderItem extends DataObject{
         return al;
     }
     
-    public int newOrderID(){
+    public int new_order_id(){
         FileInputStream in;
+            
         try {
-            in = new FileInputStream("OrderItem.txt");
+            in = new FileInputStream(OrderItemFile);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
  
             String strLine = null, tmp;
@@ -135,9 +125,9 @@ public class OrderItem extends DataObject{
 
             String lastLine = strLine;
             String[] lgn = lastLine.split(",");
-                
+
             order_id = Integer.parseInt(lgn[0]) + 1;
-                
+
             in.close();
             return order_id;
         } catch (FileNotFoundException ex) {
@@ -147,4 +137,17 @@ public class OrderItem extends DataObject{
             Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
+    }
+    
+    public void insert_into_orderitem(int order_ID, String cus_ID, String pdt_ID, String pdt_Name, double pdt_Price, double total_Price, int pdt_Qtt,String pdt_Ctgy) throws IOException{
+        FileWriter fw= new FileWriter(OrderItemFile,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter pw = new PrintWriter(bw);
+        pw.println(order_ID+","+cus_ID+","+pdt_ID+","+pdt_Name+","+pdt_Price+","+total_Price+","+pdt_Qtt+"," +pdt_Ctgy+",Pending");
+        pw.flush();
+        pw.close();
+        bw.close();
+        fw.close();
+        
+    }
 }

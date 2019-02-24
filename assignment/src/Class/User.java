@@ -234,7 +234,6 @@ public class User extends DataObject{
                     String[] data = record.split("\\" + Seperator);
                     if (data[0].equals(this.get_email()) && data[1].equals(this.get_pwd())){
                         found = true;
-                        
                         this.set_id_no(data[2]);
                         this.set_firstname(data[3]);
                         this.set_lastname(data[4]);
