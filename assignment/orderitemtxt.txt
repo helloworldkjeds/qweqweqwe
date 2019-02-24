@@ -61,3 +61,12 @@
 7,CU68422,PD77230,chair,41.89,83.78,2,Non-fragile,Pending
 7,CU68422,PD52233,Glass Bottle,20.89,83.56,4,Fragile,Pending
 7,CU68422,PD32234,Table,62.89,314.45,5,Non-fragile,Pending
+8,CU68422,PD32234,Table,62.89,125.78,2,Non-fragile,Pending
+8,CU68422,PD52233,Glass Bottle,20.89,62.67,3,Fragile,Pending
+8,CU68422,PD52233,Glass Bottle,20.89,83.56,4,Fragile,Pending
+8,CU68422,PD52233,Glass Bottle,20.89,41.78,2,Fragile,Pending
+8,CU68422,PD32234,Table,62.89,125.78,2,Non-fragile,Pending
+8,CU68422,PD77230,chair,41.89,125.67,3,Non-fragile,Pending
+8,CU68422,PD77230,chair,41.89,83.78,2,Non-fragile,Pending
+8,CU68422,PD52233,Glass Bottle,20.89,83.56,4,Fragile,Pending
+8,CU68422,PD32234,Table,62.89,314.45,5,Non-fragile,Pending

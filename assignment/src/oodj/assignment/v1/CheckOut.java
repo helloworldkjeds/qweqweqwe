@@ -32,7 +32,7 @@ public class CheckOut extends javax.swing.JFrame {
      */
     
     
-    protected int orderID;
+    
     protected double grand_tll;
     public CheckOut() {
         initComponents();

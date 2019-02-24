@@ -118,25 +118,12 @@ public class OrderItem{
         try {
             in = new FileInputStream(OrderItemFile);
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
- 
             String strLine = null, tmp;
-            
-            
-            if (br.readLine() == null){
-                
-                return 1;
-                
-            }
-            while ((tmp = br.readLine()) != null)
-            {
-               strLine = tmp;
-            }
-
+            if (br.readLine() == null){return 1;}
+            while ((tmp = br.readLine()) != null){strLine = tmp;}
             String lastLine = strLine;
             String[] lgn = lastLine.split(",");
-
             order_id = Integer.parseInt(lgn[0]) + 1;
-
             in.close();
             return order_id;
         } catch (FileNotFoundException ex) {
@@ -158,8 +145,5 @@ public class OrderItem{
         pw.close();
         bw.close();
         fw.close();
-        
     }
-    
-    
 }
