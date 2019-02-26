@@ -36,21 +36,29 @@
                                       <Component id="add_cart_but" min="-2" pref="138" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" pref="49" max="32767" attributes="0"/>
+                              <EmptySpace pref="49" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="pdt_id_lab" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="pdt_id_lab" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="odr_qttlab" min="-2" pref="91" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="productid_txt" max="32767" attributes="0"/>
                                   <Component id="pdt_name_txt" max="32767" attributes="0"/>
@@ -58,7 +66,8 @@
                                   <Component id="pdt_prc_txt" alignment="0" max="32767" attributes="0"/>
                                   <Component id="pdt_ctg" alignment="0" max="32767" attributes="0"/>
                                   <Component id="ttl_pricetxt" max="32767" attributes="0"/>
-                                  <Component id="cal_ttl_price_but" min="-2" pref="189" max="-2" attributes="0"/>
+                                  <Component id="cal_ttl_price_but" alignment="0" pref="189" max="32767" attributes="0"/>
+                                  <Component id="odr_qtt_txt" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -82,8 +91,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="pdt_id_lab" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="productid_txt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,15 +126,19 @@
                           <Component id="ttl_pricetxt" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="odr_qtt_txt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="odr_qttlab" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" pref="246" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cal_ttl_price_but" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="add_cart_but" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="cal_ttl_price_but" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="126" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="back_but" min="-2" pref="56" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -233,6 +250,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pdt_qtt_txt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pdt_prc_txt">
       <Properties>
@@ -277,6 +297,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cal_ttl_price_butActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="odr_qtt_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="odr_qttlab">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Order Quantity:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

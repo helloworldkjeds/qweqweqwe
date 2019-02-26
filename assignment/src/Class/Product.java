@@ -82,15 +82,15 @@ public class Product {
         
         return final_price;
     }
-    public double calculate_total_price(double pdt_Price,int pdt_Qtt){
+    public double calculate_total_price(double pdt_Price,int odr_Qtt){
         
         double total_price = 0;
         Product pdt = new Product();
+        
         pdt.set_pdt_price(pdt_Price);
+        pdt.set_pdt_qtt(odr_Qtt);
         
-        pdt.set_pdt_qtt(pdt_Qtt);
         total_price = pdt.get_pdt_price() * pdt.get_pdt_qtt();  
-        
         System.out.println(total_price);
         
         return total_price;

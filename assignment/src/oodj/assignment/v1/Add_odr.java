@@ -86,6 +86,8 @@ public class Add_odr extends javax.swing.JFrame {
         add_cart_but = new javax.swing.JButton();
         back_but = new javax.swing.JButton();
         cal_ttl_price_but = new javax.swing.JButton();
+        odr_qtt_txt = new javax.swing.JTextField();
+        odr_qttlab = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +135,8 @@ public class Add_odr extends javax.swing.JFrame {
 
         pdt_name_txt.setEditable(false);
 
+        pdt_qtt_txt.setEditable(false);
+
         pdt_prc_txt.setEditable(false);
 
         pdt_ctg.setEditable(false);
@@ -162,6 +166,8 @@ public class Add_odr extends javax.swing.JFrame {
             }
         });
 
+        odr_qttlab.setText("Order Quantity:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -177,18 +183,23 @@ public class Add_odr extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(71, 71, 71)
                                         .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 49, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(44, 44, 44)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(pdt_id_lab)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6))))
-                                .addGap(74, 74, 74)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(44, 44, 44)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(pdt_id_lab)
+                                                    .addComponent(jLabel2)
+                                                    .addComponent(jLabel4)
+                                                    .addComponent(jLabel5)
+                                                    .addComponent(jLabel6))))
+                                        .addGap(74, 74, 74))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(odr_qttlab, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(productid_txt)
                                     .addComponent(pdt_name_txt)
@@ -196,7 +207,8 @@ public class Add_odr extends javax.swing.JFrame {
                                     .addComponent(pdt_prc_txt)
                                     .addComponent(pdt_ctg)
                                     .addComponent(ttl_pricetxt)
-                                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                    .addComponent(odr_qtt_txt)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -211,7 +223,10 @@ public class Add_odr extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pdt_id_lab)
@@ -235,13 +250,16 @@ public class Add_odr extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(odr_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(odr_qttlab, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                    .addComponent(add_cart_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -279,21 +297,29 @@ public class Add_odr extends javax.swing.JFrame {
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Please calculate total price!");
         }
+        
         OrderItem oi = new OrderItem();
         String pdt_ID = productid_txt.getText();
         String pdt_Name = pdt_name_txt.getText();
         double unit_Price = Double.parseDouble(pdt_prc_txt.getText());
         total_Price = Double.parseDouble(ttl_pricetxt.getText());
         int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
+        int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
         String pdt_Ctgy = pdt_ctg.getText();
-        oi.add_order_item(pdt_ID, pdt_Name, pdt_Qtt, unit_Price,total_Price, pdt_Ctgy);
+        if (odr_Qtt <= pdt_Qtt){
+            oi.add_order_item(pdt_ID, pdt_Name, odr_Qtt, unit_Price,total_Price, pdt_Ctgy);
+        }
+        else{
+             JOptionPane.showMessageDialog(null,"Insufficient product for purchase!");
+        }
+       
     }//GEN-LAST:event_add_cart_butActionPerformed
 
     private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
         Product pdt = new Product();
         double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
-        int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
-        double total_price = pdt.calculate_total_price(pdt_Price, pdt_Qtt);
+        int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
+        double total_price = pdt.calculate_total_price(pdt_Price, odr_Qtt);
         ttl_pricetxt.setText(String.valueOf(total_price));    
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 
@@ -344,6 +370,8 @@ public class Add_odr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField odr_qtt_txt;
+    private javax.swing.JLabel odr_qttlab;
     private javax.swing.JTextField pdt_ctg;
     private javax.swing.JLabel pdt_id_lab;
     private javax.swing.JTextField pdt_name_txt;
