@@ -5,6 +5,13 @@
  */
 package oodj.assignment.v1;
 
+import Class.Customer;
+import Class.Order;
+import Class.OrderItem;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author New
@@ -16,6 +23,22 @@ public class DisplayBill extends javax.swing.JFrame {
      */
     public DisplayBill() {
         initComponents();
+        
+        Customer cus = new Customer();
+        boolean checkorder = cus.order_select_cus_id();
+        if (!checkorder){
+            JOptionPane.showMessageDialog(null,"You have not ordered any product!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
+            OrderItem odr = new OrderItem();
+            ArrayList<Object[]> al = odr.view_cart_item(model, "ordertxt.txt");
+            for(int i =0; al.size()>i;i++){
+                model.addRow(al.get(i));
+            }
+        }
+        
+        
+        
     }
 
     /**
@@ -30,7 +53,7 @@ public class DisplayBill extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         OrderTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        OrderItemTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,20 +65,27 @@ public class DisplayBill extends javax.swing.JFrame {
                 "Order ID", "Customer ID", "Total Quantity", "Grand Total", "Order Status"
             }
         ));
+        OrderTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OrderTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(OrderTable);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        OrderItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Sub Total", "Product Category"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        OrderItemTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OrderItemTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(OrderItemTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,22 +94,44 @@ public class DisplayBill extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 703, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(716, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
+                .addContainerGap(622, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(75, 75, 75)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(295, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void OrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+        int selectedRowIndex = OrderTable.getSelectedRow();
+        Order odr = new Order();
+        odr.set_order_id(Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString()));
+        view_order_item();
+    }//GEN-LAST:event_OrderTableMouseClicked
+    
+    public void viewTable2(){
+        
+        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
+        model2.setRowCount(0);
+        ArrayList<Object[]> al = fh.ViewOrderItem(orderID,model2,"OrderItem.txt");
+        for(int i =0; al.size()>i;i++){
+            model2.addRow(al.get(i));
+        }
+    }    
+    
+    private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderItemTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -117,9 +169,9 @@ public class DisplayBill extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable OrderItemTable;
     private javax.swing.JTable OrderTable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

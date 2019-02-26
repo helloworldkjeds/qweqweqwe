@@ -171,7 +171,7 @@ public class Customer extends User{
             
         
     }
-    public boolean select_cus_id(){
+    public boolean cart_select_cus_id(){
         boolean found = false;
         super.da.setTarget_file(new File("cartitemtxt.txt"));
         ArrayList<String> list = super.da.getAll();
@@ -186,5 +186,22 @@ public class Customer extends User{
         }
         return found;
     }
+    
+    public boolean order_select_cus_id(){
+        boolean found = false;
+        super.da.setTarget_file(new File("ordertxt.txt"));
+        ArrayList<String> list = super.da.getAll();
+        if (list != null){
+            for (String record: list){
+                String[] data = record.split("\\" + Seperator);
+                Customer cus = new Customer();
+                if (data[0].equals(cus.get_id_no())){
+                    found = true;
+                }
+            }
+        }
+        return found;
+    }
+    
 }
 

@@ -308,10 +308,12 @@ public class Add_odr extends javax.swing.JFrame {
         String pdt_Ctgy = pdt_ctg.getText();
         if (odr_Qtt <= pdt_Qtt){
             oi.add_order_item(pdt_ID, pdt_Name, odr_Qtt, unit_Price,total_Price, pdt_Ctgy);
+            int pdt_left = pdt_Qtt - odr_Qtt;
         }
         else{
              JOptionPane.showMessageDialog(null,"Insufficient product for purchase!");
         }
+        
        
     }//GEN-LAST:event_add_cart_butActionPerformed
 

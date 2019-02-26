@@ -27,7 +27,25 @@ import oodj.assignment.v1.Add_odr;
  *
  * @author New
  */
+
+
 public class Order extends OrderItem{
+    
+    
+    
+    
+    @Override
+    public int get_order_id(){
+        return order_id;
+    }
+
+    @Override
+    public void set_order_id(int order_id){
+        this.order_id = order_id;
+    }
+    
+    
+    
     public void insert_into_order( int orderID, String cus_ID, int total_item_Qtt, double grand_tll) throws IOException{
         FileWriter fw= new FileWriter("ordertxt.txt",true);
         BufferedWriter bw = new BufferedWriter(fw);
