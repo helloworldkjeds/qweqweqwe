@@ -177,4 +177,34 @@ public class OrderItem{
 
         tempFile.renameTo(oldFile);
     }
+    
+    public ArrayList<Object[]> view_order_item(int order_id, DefaultTableModel tb, String OrderItemFile){
+        Scanner Sc = new Scanner(System.in);
+        Object [] row =new Object[]{};
+        ArrayList array = new ArrayList<Object[]>(); 
+        String ID = Integer.toString(order_id);
+        try
+        {
+            File file2Read = new File(OrderItemFile);
+            Sc = new Scanner(file2Read);            
+        
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] lines = Line.split(",");
+                 
+                 if (lines[0].equals(ID)){
+                     row = new Object[] {lines[0],lines[1],lines[2],lines[3],lines[4],lines[5],lines[6],lines[7]};
+                     array.add(row);
+                 }
+                 
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+            
+        }
+        return array;
+    }
 }

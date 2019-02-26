@@ -111,7 +111,9 @@ public class Cus_Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void dis_bill_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dis_bill_butActionPerformed
-        // TODO add your handling code here:
+        DisplayBill db = new DisplayBill();
+        db.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_dis_bill_butActionPerformed
 
     private void mng_odr_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mng_odr_butActionPerformed

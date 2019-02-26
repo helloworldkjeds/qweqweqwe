@@ -195,7 +195,7 @@ public class Customer extends User{
             for (String record: list){
                 String[] data = record.split("\\" + Seperator);
                 Customer cus = new Customer();
-                if (data[0].equals(cus.get_id_no())){
+                if (data[1].equals(cus.get_id_no())){
                     found = true;
                 }
             }

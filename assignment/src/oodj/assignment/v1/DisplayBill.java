@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  * @author New
  */
 public class DisplayBill extends javax.swing.JFrame {
-
+    int order_id;
     /**
      * Creates new form DisplayBill
      */
@@ -29,9 +29,9 @@ public class DisplayBill extends javax.swing.JFrame {
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"You have not ordered any product!");
         }else{
-            DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
-            OrderItem odr = new OrderItem();
-            ArrayList<Object[]> al = odr.view_cart_item(model, "ordertxt.txt");
+            DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+            Order odr = new Order();
+            ArrayList<Object[]> al = odr.view_order(cus.get_id_no(), model, "ordertxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }
@@ -54,6 +54,22 @@ public class DisplayBill extends javax.swing.JFrame {
         OrderTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         OrderItemTable = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        cus_idtxt = new javax.swing.JTextField();
+        ttl_pricetxt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        pdt_ctg = new javax.swing.JTextField();
+        odr_itemtxt = new javax.swing.JTextField();
+        pdt_prc_txt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        pdt_qtt_txt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        pdt_name_txt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        productid_txt = new javax.swing.JTextField();
+        pdt_id_lab = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,7 +93,7 @@ public class DisplayBill extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Sub Total", "Product Category"
+                "Product ID", "Product Name", "Product Quantity", "Unit Price", "Sub Total", "Product Category"
             }
         ));
         OrderItemTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -86,6 +102,43 @@ public class DisplayBill extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(OrderItemTable);
+
+        jLabel6.setText("Total Price:");
+
+        cus_idtxt.setEditable(false);
+
+        ttl_pricetxt.setEditable(false);
+
+        jLabel7.setText("Customer ID:");
+
+        pdt_ctg.setEditable(false);
+
+        odr_itemtxt.setEditable(false);
+
+        pdt_prc_txt.setEditable(false);
+
+        jLabel1.setText("OrderItem ID:");
+
+        pdt_qtt_txt.setEditable(false);
+
+        jLabel5.setText("Product Category:");
+
+        jLabel4.setText("Product Price:");
+
+        pdt_name_txt.setEditable(false);
+
+        jLabel3.setText("Product Quantity:");
+
+        jLabel2.setText("Product Name:");
+
+        productid_txt.setEditable(false);
+        productid_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productid_txtActionPerformed(evt);
+            }
+        });
+
+        pdt_id_lab.setText("Product ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,15 +149,69 @@ public class DisplayBill extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
                     .addComponent(jScrollPane1))
-                .addContainerGap(622, Short.MAX_VALUE))
+                .addGap(56, 56, 56)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel1)
+                    .addComponent(pdt_id_lab)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(productid_txt)
+                    .addComponent(pdt_name_txt)
+                    .addComponent(pdt_qtt_txt)
+                    .addComponent(pdt_prc_txt)
+                    .addComponent(pdt_ctg)
+                    .addComponent(ttl_pricetxt)
+                    .addComponent(odr_itemtxt)
+                    .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(257, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(75, 75, 75)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pdt_id_lab)
+                            .addComponent(productid_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(pdt_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(pdt_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(pdt_prc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(295, Short.MAX_VALUE))
         );
 
@@ -115,23 +222,32 @@ public class DisplayBill extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
         int selectedRowIndex = OrderTable.getSelectedRow();
         Order odr = new Order();
-        odr.set_order_id(Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString()));
-        view_order_item();
+        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        
+        select_order_item();
+        
     }//GEN-LAST:event_OrderTableMouseClicked
     
-    public void viewTable2(){
+    public void select_order_item(){
+        OrderItem oi = new OrderItem();
         
-        DefaultTableModel model2 = (DefaultTableModel) jTable2.getModel();
-        model2.setRowCount(0);
-        ArrayList<Object[]> al = fh.ViewOrderItem(orderID,model2,"OrderItem.txt");
-        for(int i =0; al.size()>i;i++){
-            model2.addRow(al.get(i));
+        DefaultTableModel model_2 = (DefaultTableModel) OrderItemTable.getModel();
+        model_2.setRowCount(0);
+        ArrayList<Object[]> array = oi.view_order_item(order_id,model_2,"orderitemtxt.txt");
+        for(int i =0; array.size()>i;i++){
+            model_2.addRow(array.get(i));
+            
         }
+        System.out.println(order_id);
     }    
     
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_OrderItemTableMouseClicked
+
+    private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productid_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,7 +287,23 @@ public class DisplayBill extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JTable OrderTable;
+    private javax.swing.JTextField cus_idtxt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField odr_itemtxt;
+    private javax.swing.JTextField pdt_ctg;
+    private javax.swing.JLabel pdt_id_lab;
+    private javax.swing.JTextField pdt_name_txt;
+    private javax.swing.JTextField pdt_prc_txt;
+    private javax.swing.JTextField pdt_qtt_txt;
+    private javax.swing.JTextField productid_txt;
+    private javax.swing.JTextField ttl_pricetxt;
     // End of variables declaration//GEN-END:variables
 }

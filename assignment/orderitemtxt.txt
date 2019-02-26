@@ -11,3 +11,4 @@
 1,CU68422,PD32234,Table,62.89,314.45,5,Non-fragile
 1,CU68422,PD32234,Table,62.89,314.45,5,Non-fragile
 1,CU68422,PD32234,Table,62.89,314.45,5,Non-fragile
+2,CU68422,PD52233,Glass Bottle,20.89,62.67,3,Fragile
