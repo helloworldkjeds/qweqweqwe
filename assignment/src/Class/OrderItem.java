@@ -11,6 +11,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -140,10 +142,50 @@ public class OrderItem{
         FileWriter fw= new FileWriter(OrderItemFile,true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);
-        pw.println(order_ID+","+cus_ID+","+pdt_ID+","+pdt_Name+","+pdt_Price+","+total_Price+","+pdt_Qtt+"," +pdt_Ctgy+",Pending");
+        pw.println(order_ID+","+cus_ID+","+pdt_ID+","+pdt_Name+","+pdt_Price+","+total_Price+","+pdt_Qtt+"," +pdt_Ctgy);
         pw.flush();
         pw.close();
         bw.close();
         fw.close();
+    }
+    public void cart_delete(String cusID) {
+
+        
+        File oldFile = new File("cartitemtxt.txt");
+        File tempFile = new File("tempcartitemtxt.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(oldFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+            Customer cus = new Customer();    
+            while ((currentLine = reader.readLine()) != null) {
+                ArrayList<String> List = new ArrayList<>(Arrays.asList(currentLine.split(",")));
+                
+                if (!List.get(0).equals(cus.get_id_no())) {
+                    writer.write(currentLine + System.getProperty("line.separator"));
+                } 
+                /*else {
+                    JOptionPane.showMessageDialog(null, "Cart cleared.", "Notification", JOptionPane.INFORMATION_MESSAGE);
+                }*/
+            }
+            JOptionPane.showMessageDialog(null, "Cart cleared.", "Notification", JOptionPane.INFORMATION_MESSAGE);
+            writer.close();
+            reader.close();
+
+            if (!oldFile.delete()) {
+                JOptionPane.showMessageDialog(null, "Could not update !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+            if (!tempFile.renameTo(oldFile)) {
+                JOptionPane.showMessageDialog(null, "Could not Rename !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        tempFile.renameTo(oldFile);
     }
 }
