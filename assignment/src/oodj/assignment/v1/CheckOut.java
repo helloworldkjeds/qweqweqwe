@@ -192,7 +192,8 @@ public class CheckOut extends javax.swing.JFrame {
             odr.insert_into_order(odr.get_order_id(), cus.get_id_no(), total_item_qtt, grand_tll);
         } catch (IOException ex) {
             Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        }
+        oi.cart_delete(cus.get_id_no());
             
         
         
