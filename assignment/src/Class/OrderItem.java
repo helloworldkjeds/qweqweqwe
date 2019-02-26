@@ -140,7 +140,7 @@ public class OrderItem{
     public void cart_delete(String cusID) {
 
         
-        File oldFile = new File(CartFile);
+        File oldFile = new File("cartitemtxt.txt");
         File tempFile = new File("tempcartitemtxt.txt");
 
         try {
