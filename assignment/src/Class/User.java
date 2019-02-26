@@ -191,7 +191,7 @@ public class User extends DataObject{
             }
             else if (position == "Customer"){
                 id_no = ("CU" + random_no1 + random_no2 + random_no3 + DateTimeFormatter.ofPattern("dd").format(localDate) );
-                File writefile = new File("customertxt.txt");
+                File writefile = new File(CusFile);
                 if(!writefile.exists()) {
                    writefile.createNewFile();
                 }

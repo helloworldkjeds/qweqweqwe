@@ -43,24 +43,13 @@ public class OrderItem{
     public int get_order_id(){
         return order_id;
     }
-    
-    
+
     public void set_order_id(int order_id){
         this.order_id = order_id;
     }
     
-    
     public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
-        /*
-        LocalDate localDate = LocalDate.now();
-        //System.out.println(DateTimeFormatter.ofPattern("dd").format(localDate));
-        Random random = new Random();
-        int random_no1 = random.nextInt(9);
-        int random_no2 = random.nextInt(9);
-        int random_no3 = random.nextInt(9);
-        //String temp_id_no="";
-        //boolean found=false;
-        */
+        
         try{    
             
             File writefile = new File(CartFile);
@@ -140,7 +129,7 @@ public class OrderItem{
         FileWriter fw= new FileWriter(OrderItemFile,true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);
-        pw.println(order_ID+","+cus_ID+","+pdt_ID+","+pdt_Name+","+pdt_Price+","+total_Price+","+pdt_Qtt+"," +pdt_Ctgy+",Pending");
+        pw.println(order_ID+","+cus_ID+","+pdt_ID+","+pdt_Name+","+pdt_Price+","+total_Price+","+pdt_Qtt+"," +pdt_Ctgy);
         pw.flush();
         pw.close();
         bw.close();

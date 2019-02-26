@@ -39,7 +39,7 @@ public class DisplayBill extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Order ID", "Customer ID", "Total Quantity", "Grand Total"
+                "Order ID", "Customer ID", "Total Quantity", "Grand Total", "Order Status"
             }
         ));
         jScrollPane1.setViewportView(OrderTable);
@@ -75,7 +75,7 @@ public class DisplayBill extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(72, 72, 72)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();

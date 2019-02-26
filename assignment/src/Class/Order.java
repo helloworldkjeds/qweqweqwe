@@ -32,7 +32,7 @@ public class Order extends OrderItem{
         FileWriter fw= new FileWriter("ordertxt.txt",true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);
-        pw.println(orderID+","+cus_ID+","+total_item_Qtt+","+grand_tll);
+        pw.println(orderID+","+cus_ID+","+total_item_Qtt+","+grand_tll+",Pending");
         pw.flush();
         pw.close();
         bw.close();
