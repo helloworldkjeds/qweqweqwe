@@ -31,13 +31,11 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         initComponents();
         
         
-<<<<<<< HEAD
         Customer cus = new Customer();
+        
+
+        
         boolean checkorder = cus.cart_select_cus_id();
-=======
-        /*Customer cus = new Customer();
-        boolean checkorder = cus.select_cus_id();
->>>>>>> 9ef4d39d039c0b5e4ac12a6d48f24a88585d878f
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"You have not order any product!");
         }else{
@@ -47,7 +45,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }
-        }*/
+        }
     }
 
     /**
