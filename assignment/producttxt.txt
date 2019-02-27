@@ -1,0 +1,3 @@
+PD80282,Chair,3,31.49,Non-fragile
+PD48285,Table,5,62.99,Non-fragile
+PD07283,Monitor,5,629.99,Fragile
