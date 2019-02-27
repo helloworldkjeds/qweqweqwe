@@ -297,32 +297,41 @@ public class Add_odr extends javax.swing.JFrame {
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Please calculate total price!");
         }
-        
-        OrderItem oi = new OrderItem();
-        String pdt_ID = productid_txt.getText();
-        String pdt_Name = pdt_name_txt.getText();
-        double unit_Price = Double.parseDouble(pdt_prc_txt.getText());
-        total_Price = Double.parseDouble(ttl_pricetxt.getText());
-        int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
-        int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
-        String pdt_Ctgy = pdt_ctg.getText();
-        if (odr_Qtt <= pdt_Qtt){
-            oi.add_order_item(pdt_ID, pdt_Name, odr_Qtt, unit_Price,total_Price, pdt_Ctgy);
-            int pdt_left = pdt_Qtt - odr_Qtt;
+        try{
+            OrderItem oi = new OrderItem();
+            String pdt_ID = productid_txt.getText();
+            String pdt_Name = pdt_name_txt.getText();
+            double unit_Price = Double.parseDouble(pdt_prc_txt.getText());
+            total_Price = Double.parseDouble(ttl_pricetxt.getText());
+            int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
+            int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
+            String pdt_Ctgy = pdt_ctg.getText();
+            if (odr_Qtt <= pdt_Qtt){
+                oi.add_order_item(pdt_ID, pdt_Name, odr_Qtt, unit_Price,total_Price, pdt_Ctgy);
+                int pdt_left = pdt_Qtt - odr_Qtt;
+            }
+            else{
+                 JOptionPane.showMessageDialog(null,"Insufficient product for purchase!");
+            }
         }
-        else{
-             JOptionPane.showMessageDialog(null,"Insufficient product for purchase!");
+        catch(Exception e){
+            
         }
         
        
     }//GEN-LAST:event_add_cart_butActionPerformed
 
     private void cal_ttl_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_ttl_price_butActionPerformed
-        Product pdt = new Product();
-        double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
-        int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
-        double total_price = pdt.calculate_total_price(pdt_Price, odr_Qtt);
-        ttl_pricetxt.setText(String.valueOf(total_price));    
+        try{
+            Product pdt = new Product();
+            double pdt_Price = Double.parseDouble(pdt_prc_txt.getText());
+            int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
+            double total_price = pdt.calculate_total_price(pdt_Price, odr_Qtt);
+            ttl_pricetxt.setText(String.valueOf(total_price));  
+        }
+        catch(Exception e){
+            
+        }
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 
     /**
