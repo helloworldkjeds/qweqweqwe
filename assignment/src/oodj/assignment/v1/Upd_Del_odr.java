@@ -32,7 +32,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         
         
         Customer cus = new Customer();
-        boolean checkorder = cus.select_cus_id();
+        boolean checkorder = cus.cart_select_cus_id();
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"You have not order any product!");
         }else{
