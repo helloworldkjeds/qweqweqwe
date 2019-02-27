@@ -37,8 +37,6 @@ public class DisplayBill extends javax.swing.JFrame {
             }
         }
         
-        
-        
     }
 
     /**
@@ -70,6 +68,7 @@ public class DisplayBill extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         productid_txt = new javax.swing.JTextField();
         pdt_id_lab = new javax.swing.JLabel();
+        back_but = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,7 +92,7 @@ public class DisplayBill extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Product ID", "Product Name", "Product Quantity", "Unit Price", "Sub Total", "Product Category"
+                "Order ID", "Product ID", "Product Name", "Unit Price", "Sub Total", "Product Quantity", "Product Category"
             }
         ));
         OrderItemTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,35 +139,45 @@ public class DisplayBill extends javax.swing.JFrame {
 
         pdt_id_lab.setText("Product ID:");
 
+        back_but.setText("Back");
+        back_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_butActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel1)
-                    .addComponent(pdt_id_lab)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(productid_txt)
-                    .addComponent(pdt_name_txt)
-                    .addComponent(pdt_qtt_txt)
-                    .addComponent(pdt_prc_txt)
-                    .addComponent(pdt_ctg)
-                    .addComponent(ttl_pricetxt)
-                    .addComponent(odr_itemtxt)
-                    .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel1)
+                            .addComponent(pdt_id_lab)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(productid_txt)
+                            .addComponent(pdt_name_txt)
+                            .addComponent(pdt_qtt_txt)
+                            .addComponent(pdt_prc_txt)
+                            .addComponent(pdt_ctg)
+                            .addComponent(ttl_pricetxt)
+                            .addComponent(odr_itemtxt)
+                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -212,7 +221,9 @@ public class DisplayBill extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,6 +259,12 @@ public class DisplayBill extends javax.swing.JFrame {
     private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productid_txtActionPerformed
+
+    private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
+        Mng_odr_cus moc = new Mng_odr_cus();
+        moc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_back_butActionPerformed
 
     /**
      * @param args the command line arguments
@@ -287,6 +304,7 @@ public class DisplayBill extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JTable OrderTable;
+    private javax.swing.JButton back_but;
     private javax.swing.JTextField cus_idtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

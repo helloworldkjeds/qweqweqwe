@@ -1,3 +1,0 @@
-PD77230,chair,3,41.89,Non-fragile
-PD32234,Table,5,62.89,Non-fragile
-PD52233,Glass Bottle,4,20.89,Fragile

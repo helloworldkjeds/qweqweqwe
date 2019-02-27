@@ -194,7 +194,7 @@ public class OrderItem{
                  String[] lines = Line.split(",");
                  
                  if (lines[0].equals(ID)){
-                     row = new Object[] {lines[0],lines[1],lines[2],lines[3],lines[4],lines[5],lines[6],lines[7]};
+                     row = new Object[] {lines[0],lines[2],lines[3],lines[4],lines[5],lines[6],lines[7]};
                      array.add(row);
                  }
                  
