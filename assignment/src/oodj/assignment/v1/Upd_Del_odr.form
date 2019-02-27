@@ -33,21 +33,21 @@
                               <Component id="show_odr_item_but" min="-2" pref="134" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="edit_odr_item" min="-2" pref="188" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton2" min="-2" pref="138" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" min="-2" pref="702" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="792" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <Component id="pdt_id_lab" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="odr_qttlab1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -57,31 +57,23 @@
                           <Component id="pdt_prc_txt" alignment="0" max="32767" attributes="0"/>
                           <Component id="pdt_ctg" alignment="0" max="32767" attributes="0"/>
                           <Component id="ttl_pricetxt" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cus_idtxt" pref="189" max="32767" attributes="0"/>
+                          <Component id="odr_qtt_txt" max="32767" attributes="0"/>
                           <Component id="cal_ttl_price_but" alignment="0" max="32767" attributes="0"/>
-                          <Component id="odr_itemtxt" max="32767" attributes="0"/>
-                          <Component id="cus_idtxt" min="-2" pref="189" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="59" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPane2" min="-2" pref="494" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="494" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="odr_itemtxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cus_idtxt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -111,19 +103,24 @@
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="pdt_ctg" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ttl_pricetxt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="odr_qttlab1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="odr_qtt_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ttl_pricetxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="cal_ttl_price_but" min="-2" pref="56" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton2" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                       <Component id="edit_odr_item" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
                   <Component id="show_odr_item_but" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
@@ -199,12 +196,15 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="OrderItemTableMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="show_odr_item_but">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Show Order Item"/>
+        <Property name="text" type="java.lang.String" value="Refresh Table"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="show_odr_item_butActionPerformed"/>
@@ -214,6 +214,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Update/Edit Order Item"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edit_odr_itemActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
@@ -226,6 +229,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pdt_qtt_txt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pdt_prc_txt">
       <Properties>
@@ -288,16 +294,6 @@
         <Property name="text" type="java.lang.String" value="Product Category:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="OrderItem ID:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="odr_itemtxt">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
         <Property name="text" type="java.lang.String" value="Customer ID:"/>
@@ -315,6 +311,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="back_butActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="odr_qtt_txt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="odr_qttlab1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Order Quantity:"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -261,8 +261,8 @@ public class DisplayBill extends javax.swing.JFrame {
     }//GEN-LAST:event_productid_txtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-        Mng_odr_cus moc = new Mng_odr_cus();
-        moc.setVisible(true);
+        Cus_Menu cm = new Cus_Menu();
+        cm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
 

@@ -168,8 +168,8 @@ public class CheckOut extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void check_out_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_check_out_butActionPerformed
+
         Customer cus = new Customer();
-       
         Order odr = new Order();
         OrderItem oi = new OrderItem();
         odr.set_order_id(oi.new_order_id());
@@ -185,18 +185,19 @@ public class CheckOut extends javax.swing.JFrame {
             String pdt_Ctgy = model.getValueAt(i, 6).toString();
             try {
                 oi.insert_into_orderitem(odr.get_order_id(),cus.get_id_no(),pdt_ID, pdt_Name, pdt_Price, total_Price, pdt_Qtt,pdt_Ctgy);
-                System.out.println(odr.get_order_id());
+                
             } catch (IOException ex) {
                 Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         try{
             odr.insert_into_order(odr.get_order_id(), cus.get_id_no(), total_item_qtt, grand_tll);
+            JOptionPane.showMessageDialog(null,"Checkout Success!");
         } catch (IOException ex) {
             Logger.getLogger(Order.class.getName()).log(Level.SEVERE, null, ex);
         }
         oi.cart_delete(cus.get_id_no());
-            
+        
         
         
         

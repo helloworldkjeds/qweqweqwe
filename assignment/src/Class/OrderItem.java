@@ -207,4 +207,43 @@ public class OrderItem{
         }
         return array;
     }
+    
+    
+    
+    public void update_order_item(String cus_ID, String pdt_ID, String pdt_Name, int odr_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
+        ArrayList<String> array = new ArrayList<>();
+        try (FileReader fr = new FileReader("cartitemtxt.txt")) {
+            Scanner scan = new Scanner(fr);
+            while (scan.hasNextLine()) {
+                //check if the customer id and product id are matched
+                String lines = scan.nextLine();
+                String[] ArrayLine = lines.split(",");
+                if (ArrayLine[1].equals(pdt_ID)) {
+                    //alter the data in array
+                    array.add(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
+                    
+                    try (PrintWriter pr = new PrintWriter("cartitemtxt.txt")) {
+                        for (String str : array) {
+                            pr.println(str);
+                        }
+                        pr.close();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, "Details", "Login Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                    JOptionPane.showMessageDialog(null, "Successfully Update Order Item.");
+                    break;
+                } else {
+                    
+                    array.add(lines);
+                }
+            }
+            
+            fr.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
+    }
 }
