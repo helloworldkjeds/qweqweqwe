@@ -5,20 +5,37 @@
  */
 package oodj.assignment.v1;
 
+import Class.Customer;
 import Class.Order;
+import Class.OrderItem;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author jcgan
+ * @author New
  */
-public class ViewOrder extends javax.swing.JPanel {
-
+public class ViewOrder extends javax.swing.JFrame {
+    int order_id;
     /**
      * Creates new form ViewOrder
      */
     public ViewOrder() {
         initComponents();
+        Customer cus = new Customer();
+        OrderItem oi = new OrderItem();
+        boolean checkorder = cus.order_select_cus_id();
+        if (!checkorder){
+            JOptionPane.showMessageDialog(null,"You have not ordered any product!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+            
+            ArrayList<Object[]> al = cus.view_order(cus.get_id_no(), model, "ordertxt.txt");
+            for(int i =0; al.size()>i;i++){
+                model.addRow(al.get(i));
+            }
+        }
     }
 
     /**
@@ -35,8 +52,8 @@ public class ViewOrder extends javax.swing.JPanel {
         OrderItemTable = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         OrderTable = new javax.swing.JTable();
-        odr_itemtxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        odr_itemtxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cus_idtxt = new javax.swing.JTextField();
         pdt_id_lab = new javax.swing.JLabel();
@@ -47,10 +64,12 @@ public class ViewOrder extends javax.swing.JPanel {
         pdt_qtt_txt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         pdt_prc_txt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         pdt_ctg = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         ttl_pricetxt = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         back_but.setText("Back");
         back_but.addActionListener(new java.awt.event.ActionListener() {
@@ -89,9 +108,9 @@ public class ViewOrder extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(OrderTable);
 
-        odr_itemtxt.setEditable(false);
-
         jLabel1.setText("OrderItem ID:");
+
+        odr_itemtxt.setEditable(false);
 
         jLabel7.setText("Customer ID:");
 
@@ -118,26 +137,26 @@ public class ViewOrder extends javax.swing.JPanel {
 
         pdt_prc_txt.setEditable(false);
 
-        jLabel5.setText("Product Category:");
-
         pdt_ctg.setEditable(false);
+
+        jLabel5.setText("Product Category:");
 
         jLabel6.setText("Total Price:");
 
         ttl_pricetxt.setEditable(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1))
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
@@ -158,12 +177,12 @@ public class ViewOrder extends javax.swing.JPanel {
                             .addComponent(ttl_pricetxt)
                             .addComponent(odr_itemtxt)
                             .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,31 +222,24 @@ public class ViewOrder extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-        Cus_Menu cm = new Cus_Menu();
-        cm.setVisible(true);
+        Mng_odr_cus moc = new Mng_odr_cus();
+        moc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
 
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_OrderItemTableMouseClicked
 
     private void OrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderTableMouseClicked
-        /*DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
-        int selectedRowIndex = OrderTable.getSelectedRow();
-        Order odr = new Order();
-<<<<<<< HEAD
-        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
-
-        select_order_item();*/
-=======
         
->>>>>>> 66c910d0ee234a5bd0ef6346e74741bf0c6785f0
 
     }//GEN-LAST:event_OrderTableMouseClicked
 
@@ -235,6 +247,40 @@ public class ViewOrder extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_productid_txtActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(ViewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ViewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ViewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ViewOrder.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ViewOrder().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;

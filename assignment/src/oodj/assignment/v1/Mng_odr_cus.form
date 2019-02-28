@@ -105,6 +105,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Order"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="view_odr_butActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="src_odr_but">
       <Properties>

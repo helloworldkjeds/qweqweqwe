@@ -253,7 +253,7 @@ public class DisplayBill extends javax.swing.JFrame {
     }    
     
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_OrderItemTableMouseClicked
 
     private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed

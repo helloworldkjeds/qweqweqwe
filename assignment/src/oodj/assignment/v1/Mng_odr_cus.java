@@ -54,6 +54,11 @@ public class Mng_odr_cus extends javax.swing.JFrame {
         });
 
         view_odr_but.setText("View Order");
+        view_odr_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_odr_butActionPerformed(evt);
+            }
+        });
 
         src_odr_but.setText("Search Order");
 
@@ -145,6 +150,12 @@ public class Mng_odr_cus extends javax.swing.JFrame {
         co.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void view_odr_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_odr_butActionPerformed
+        ViewOrder vo = new ViewOrder();
+        vo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_view_odr_butActionPerformed
 
     /**
      * @param args the command line arguments
