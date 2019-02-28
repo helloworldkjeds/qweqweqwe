@@ -10,9 +10,11 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -203,5 +205,33 @@ public class Customer extends User{
         return found;
     }
     
+    
+    public ArrayList<Object[]> view_bill(String cus_id, DefaultTableModel tb, String OrderFile){
+        Scanner Sc = new Scanner(System.in);
+        Object [] row =new Object[]{};
+        ArrayList al = new ArrayList<Object[]>(); 
+        try
+        {
+            File file2Read = new File(OrderFile);
+            Sc = new Scanner(file2Read);            
+
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] Lgn = Line.split(",");
+                 if (Lgn[1].equals(cus_id)){
+                     row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
+                     al.add(row);
+                 }
+
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+
+        }
+        return al;
+    }
 }
 

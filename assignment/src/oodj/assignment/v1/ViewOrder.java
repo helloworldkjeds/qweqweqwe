@@ -221,9 +221,13 @@ public class ViewOrder extends javax.swing.JPanel {
         /*DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
         int selectedRowIndex = OrderTable.getSelectedRow();
         Order odr = new Order();
+<<<<<<< HEAD
         order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
 
         select_order_item();*/
+=======
+        
+>>>>>>> 66c910d0ee234a5bd0ef6346e74741bf0c6785f0
 
     }//GEN-LAST:event_OrderTableMouseClicked
 

@@ -30,8 +30,8 @@ public class DisplayBill extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"You have not ordered any product!");
         }else{
             DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
-            Order odr = new Order();
-            ArrayList<Object[]> al = odr.view_bill(cus.get_id_no(), model, "ordertxt.txt");
+            
+            ArrayList<Object[]> al = cus.view_bill(cus.get_id_no(), model, "ordertxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }
