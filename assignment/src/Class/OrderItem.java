@@ -218,7 +218,7 @@ public class OrderItem{
                 //check if the customer id and product id are matched
                 String lines = scan.nextLine();
                 String[] ArrayLine = lines.split(",");
-                if (ArrayLine[1].equals(pdt_ID)) {
+                if (ArrayLine[1].equals(pdt_ID) && ArrayLine[0].equals(cus_ID)) {
                     //alter the data in array
                     array.add(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
                     
