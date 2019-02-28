@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hanson
+ * @author new
  */
 public class View_product extends javax.swing.JFrame {
 
