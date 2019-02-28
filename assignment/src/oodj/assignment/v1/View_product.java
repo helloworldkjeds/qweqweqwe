@@ -52,7 +52,8 @@ public class View_product extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(OrderItemTable);
 
-        jButton1.setText("jButton1");
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jButton1.setText("Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -91,9 +92,9 @@ public class View_product extends javax.swing.JFrame {
     }//GEN-LAST:event_OrderItemTableMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        /* log = new ();
-        log.setVisible(true);
-        this.setVisible(false); */
+        Mng_pdt mngpdt = new Mng_pdt();
+        mngpdt.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
