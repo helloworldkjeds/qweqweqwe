@@ -40,7 +40,7 @@ public class CheckOut extends javax.swing.JFrame {
         Customer cus = new Customer();
         boolean checkorder = cus.cart_select_cus_id();
         if (!checkorder){
-            JOptionPane.showMessageDialog(null,"You have not order any product!");
+            JOptionPane.showMessageDialog(null,"You Have Not Ordered Any Product!");
         }else{
             DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
             OrderItem odr = new OrderItem();
