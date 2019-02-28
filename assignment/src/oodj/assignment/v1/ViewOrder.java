@@ -5,38 +5,20 @@
  */
 package oodj.assignment.v1;
 
-import Class.Customer;
 import Class.Order;
-import Class.OrderItem;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author New
+ * @author jcgan
  */
-public class DisplayBill extends javax.swing.JFrame {
-    int order_id;
+public class ViewOrder extends javax.swing.JPanel {
+
     /**
-     * Creates new form DisplayBill
+     * Creates new form ViewOrder
      */
-    public DisplayBill() {
+    public ViewOrder() {
         initComponents();
-        
-        Customer cus = new Customer();
-        boolean checkorder = cus.order_select_cus_id();
-        if (!checkorder){
-            JOptionPane.showMessageDialog(null,"You have not ordered any product!");
-        }else{
-            DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
-            Order odr = new Order();
-            ArrayList<Object[]> al = odr.view_bill(cus.get_id_no(), model, "ordertxt.txt");
-            for(int i =0; al.size()>i;i++){
-                model.addRow(al.get(i));
-            }
-        }
-        
     }
 
     /**
@@ -48,44 +30,34 @@ public class DisplayBill extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        OrderTable = new javax.swing.JTable();
+        back_but = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         OrderItemTable = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        cus_idtxt = new javax.swing.JTextField();
-        ttl_pricetxt = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        pdt_ctg = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        OrderTable = new javax.swing.JTable();
         odr_itemtxt = new javax.swing.JTextField();
-        pdt_prc_txt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        pdt_qtt_txt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        cus_idtxt = new javax.swing.JTextField();
+        pdt_id_lab = new javax.swing.JLabel();
+        productid_txt = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         pdt_name_txt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        productid_txt = new javax.swing.JTextField();
-        pdt_id_lab = new javax.swing.JLabel();
-        back_but = new javax.swing.JButton();
+        pdt_qtt_txt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        pdt_prc_txt = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        pdt_ctg = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        ttl_pricetxt = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        OrderTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Order ID", "Customer ID", "Total Quantity", "Grand Total", "Order Status"
-            }
-        ));
-        OrderTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                OrderTableMouseClicked(evt);
+        back_but.setText("Back");
+        back_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_butActionPerformed(evt);
             }
         });
-        jScrollPane1.setViewportView(OrderTable);
 
         OrderItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -102,33 +74,30 @@ public class DisplayBill extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(OrderItemTable);
 
-        jLabel6.setText("Total Price:");
+        OrderTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        cus_idtxt.setEditable(false);
-
-        ttl_pricetxt.setEditable(false);
-
-        jLabel7.setText("Customer ID:");
-
-        pdt_ctg.setEditable(false);
+            },
+            new String [] {
+                "Order ID", "Customer ID", "Total Quantity", "Grand Total", "Order Status"
+            }
+        ));
+        OrderTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                OrderTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(OrderTable);
 
         odr_itemtxt.setEditable(false);
 
-        pdt_prc_txt.setEditable(false);
-
         jLabel1.setText("OrderItem ID:");
 
-        pdt_qtt_txt.setEditable(false);
+        jLabel7.setText("Customer ID:");
 
-        jLabel5.setText("Product Category:");
+        cus_idtxt.setEditable(false);
 
-        jLabel4.setText("Product Price:");
-
-        pdt_name_txt.setEditable(false);
-
-        jLabel3.setText("Product Quantity:");
-
-        jLabel2.setText("Product Name:");
+        pdt_id_lab.setText("Product ID:");
 
         productid_txt.setEditable(false);
         productid_txt.addActionListener(new java.awt.event.ActionListener() {
@@ -137,17 +106,28 @@ public class DisplayBill extends javax.swing.JFrame {
             }
         });
 
-        pdt_id_lab.setText("Product ID:");
+        jLabel2.setText("Product Name:");
 
-        back_but.setText("Back");
-        back_but.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_butActionPerformed(evt);
-            }
-        });
+        pdt_name_txt.setEditable(false);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        jLabel3.setText("Product Quantity:");
+
+        pdt_qtt_txt.setEditable(false);
+
+        jLabel4.setText("Product Price:");
+
+        pdt_prc_txt.setEditable(false);
+
+        jLabel5.setText("Product Category:");
+
+        pdt_ctg.setEditable(false);
+
+        jLabel6.setText("Total Price:");
+
+        ttl_pricetxt.setEditable(false);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -178,7 +158,7 @@ public class DisplayBill extends javax.swing.JFrame {
                             .addComponent(ttl_pricetxt)
                             .addComponent(odr_itemtxt)
                             .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,42 +203,9 @@ public class DisplayBill extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void OrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderTableMouseClicked
-        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
-        int selectedRowIndex = OrderTable.getSelectedRow();
-        Order odr = new Order();
-        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
-        
-        select_order_item();
-        
-    }//GEN-LAST:event_OrderTableMouseClicked
-    
-    public void select_order_item(){
-        OrderItem oi = new OrderItem();
-        
-        DefaultTableModel model_2 = (DefaultTableModel) OrderItemTable.getModel();
-        model_2.setRowCount(0);
-        ArrayList<Object[]> array = oi.view_order_item(order_id,model_2,"orderitemtxt.txt");
-        for(int i =0; array.size()>i;i++){
-            model_2.addRow(array.get(i));
-            
-        }
-        System.out.println(order_id);
-    }    
-    
-    private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrderItemTableMouseClicked
-
-    private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productid_txtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         Cus_Menu cm = new Cus_Menu();
@@ -266,40 +213,24 @@ public class DisplayBill extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DisplayBill.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DisplayBill.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DisplayBill.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DisplayBill.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+    private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderItemTableMouseClicked
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DisplayBill().setVisible(true);
-            }
-        });
-    }
+    private void OrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+        int selectedRowIndex = OrderTable.getSelectedRow();
+        Order odr = new Order();
+        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+
+        select_order_item();
+
+    }//GEN-LAST:event_OrderTableMouseClicked
+
+    private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productid_txtActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable OrderItemTable;
