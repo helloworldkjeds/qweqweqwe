@@ -293,12 +293,13 @@ public class Mng_profile extends javax.swing.JFrame {
                     .replace("]", "")  //remove the close bracket
                     .replace(" ", "") //remove the spacebar
                     .trim();
-                String Newpassword = formattedString_password;
+            String Newpassword = formattedString_password;
             if (Sc.Position == "Admin"){
                 admin.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
             }
             else if (Sc.Position == "Customer"){
                 cus.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
+                
             }
         }
         else{

@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -102,6 +103,17 @@ public class Customer extends User{
         this.address = address;
     }
     
+    @Override
+    public String get_position(){
+        position = Sc.Position;
+        return position;
+    }
+    
+    @Override
+    public void set_position(String position){
+        this.position = position;
+    }
+    
     public void upd_profile (String Email,String Newpassword, String Newfirstname, String Newlastname, int Newcontact_no, String Newaddress){
         String tempFile = "temptxt.txt";
         Customer cus = new Customer();
@@ -138,14 +150,13 @@ public class Customer extends User{
                         Newcontact_no + "," +
                         Newaddress + "," +
                         cus.get_position());
-                        System.out.println("update");
                         Sc.Password = Newpassword;
-                        
                         Sc.Firstname = Newfirstname;
                         Sc.Lastname = Newlastname;
                         Sc.Contactno = Newcontact_no;
                         Sc.Address = Newaddress;
-                        
+                        JOptionPane.showMessageDialog(null,"Update success");
+                        break;
                     }
                     else{
                         pw.println(Email + "," +
@@ -157,6 +168,7 @@ public class Customer extends User{
                         cus.get_address() + "," +
                         cus.get_position());
                         System.out.println("update");
+                        break;
                     }
                 }
                 s.close();
