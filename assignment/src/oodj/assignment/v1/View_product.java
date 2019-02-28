@@ -5,6 +5,12 @@
  */
 package oodj.assignment.v1;
 
+import Class.Customer;
+import Class.OrderItem;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Hanson
@@ -16,6 +22,19 @@ public class View_product extends javax.swing.JFrame {
      */
     public View_product() {
         initComponents();
+        Customer cus = new Customer();
+        OrderItem oi = new OrderItem();
+        boolean checkorder = cus.order_select_cus_id();
+        if (!checkorder){
+            JOptionPane.showMessageDialog(null,"There Are No Records to Show!");
+        }else{
+            DefaultTableModel model = (DefaultTableModel) ViewProductTable.getModel();
+            
+            ArrayList<Object[]> al = cus.view_order(cus.get_id_no(), model, "producttxt.txt");
+            for(int i =0; al.size()>i;i++){
+                model.addRow(al.get(i));
+            }
+        }
     }
 
     /**
@@ -31,7 +50,7 @@ public class View_product extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        OrderItemTable = new javax.swing.JTable();
+        ViewProductTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,14 +65,14 @@ public class View_product extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Refresh");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        OrderItemTable.setModel(new javax.swing.table.DefaultTableModel(
+        ViewProductTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -61,7 +80,7 @@ public class View_product extends javax.swing.JFrame {
                 "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Sub Total", "Product Category"
             }
         ));
-        jScrollPane2.setViewportView(OrderItemTable);
+        jScrollPane2.setViewportView(ViewProductTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,7 +94,7 @@ public class View_product extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(600, 600, 600)
                         .addComponent(jButton2)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(39, Short.MAX_VALUE)
@@ -148,7 +167,7 @@ public class View_product extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable OrderItemTable;
+    private javax.swing.JTable ViewProductTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
