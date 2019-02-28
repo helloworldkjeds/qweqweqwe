@@ -47,6 +47,7 @@ public class ViewOrder extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jProgressBar1 = new javax.swing.JProgressBar();
         back_but = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         OrderItemTable = new javax.swing.JTable();
@@ -54,8 +55,6 @@ public class ViewOrder extends javax.swing.JFrame {
         OrderTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         odr_itemtxt = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        cus_idtxt = new javax.swing.JTextField();
         pdt_id_lab = new javax.swing.JLabel();
         productid_txt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -108,13 +107,9 @@ public class ViewOrder extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(OrderTable);
 
-        jLabel1.setText("OrderItem ID:");
+        jLabel1.setText("Order ID:");
 
         odr_itemtxt.setEditable(false);
-
-        jLabel7.setText("Customer ID:");
-
-        cus_idtxt.setEditable(false);
 
         pdt_id_lab.setText("Product ID:");
 
@@ -141,7 +136,7 @@ public class ViewOrder extends javax.swing.JFrame {
 
         jLabel5.setText("Product Category:");
 
-        jLabel6.setText("Total Price:");
+        jLabel6.setText("Subtotal");
 
         ttl_pricetxt.setEditable(false);
 
@@ -157,26 +152,28 @@ public class ViewOrder extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addComponent(pdt_id_lab)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(productid_txt)
-                            .addComponent(pdt_name_txt)
-                            .addComponent(pdt_qtt_txt)
-                            .addComponent(pdt_prc_txt)
-                            .addComponent(pdt_ctg)
-                            .addComponent(ttl_pricetxt)
-                            .addComponent(odr_itemtxt)
-                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(pdt_id_lab)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(productid_txt, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                    .addComponent(pdt_name_txt)
+                                    .addComponent(pdt_qtt_txt)
+                                    .addComponent(pdt_prc_txt)
+                                    .addComponent(ttl_pricetxt)
+                                    .addComponent(odr_itemtxt)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -185,14 +182,11 @@ public class ViewOrder extends javax.swing.JFrame {
                 .addContainerGap(65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1)
                             .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pdt_id_lab)
                             .addComponent(productid_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -202,20 +196,20 @@ public class ViewOrder extends javax.swing.JFrame {
                             .addComponent(pdt_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(pdt_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(pdt_prc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(pdt_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -235,14 +229,41 @@ public class ViewOrder extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
-
+        DefaultTableModel model_2 = (DefaultTableModel) OrderItemTable.getModel();
+        
+        int selectedRowIndex = OrderItemTable.getSelectedRow();
+       
+        odr_itemtxt.setText(model_2.getValueAt(selectedRowIndex, 0).toString());
+        productid_txt.setText(model_2.getValueAt(selectedRowIndex, 1).toString());
+        pdt_name_txt.setText(model_2.getValueAt(selectedRowIndex, 2).toString());
+        pdt_prc_txt.setText(model_2.getValueAt(selectedRowIndex, 3).toString());
+        ttl_pricetxt.setText(model_2.getValueAt(selectedRowIndex, 4).toString());
+        pdt_qtt_txt.setText(model_2.getValueAt(selectedRowIndex, 5).toString());
+        pdt_ctg.setText(model_2.getValueAt(selectedRowIndex, 6).toString());
     }//GEN-LAST:event_OrderItemTableMouseClicked
 
     private void OrderTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderTableMouseClicked
+        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+        int selectedRowIndex = OrderTable.getSelectedRow();
+        Order odr = new Order();
+        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
         
-
+        select_order_item();
+        
     }//GEN-LAST:event_OrderTableMouseClicked
-
+    public void select_order_item(){
+        OrderItem oi = new OrderItem();
+        
+        DefaultTableModel model_2 = (DefaultTableModel) OrderItemTable.getModel();
+        model_2.setRowCount(0);
+        ArrayList<Object[]> array = oi.view_order_item(order_id,model_2,"orderitemtxt.txt");
+        for(int i =0; array.size()>i;i++){
+            model_2.addRow(array.get(i));
+            
+            
+        }
+        System.out.println(order_id);
+    }    
     private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_productid_txtActionPerformed
@@ -286,14 +307,13 @@ public class ViewOrder extends javax.swing.JFrame {
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JTable OrderTable;
     private javax.swing.JButton back_but;
-    private javax.swing.JTextField cus_idtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField odr_itemtxt;

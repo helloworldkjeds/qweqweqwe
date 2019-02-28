@@ -118,6 +118,11 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         });
 
         jButton2.setText("Delete Order Item");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         pdt_name_txt.setEditable(false);
 
@@ -298,31 +303,17 @@ public class Upd_Del_odr extends javax.swing.JFrame {
     }//GEN-LAST:event_back_butActionPerformed
 
     private void show_odr_item_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_odr_item_butActionPerformed
-        /*
-        // choose userid
-        File file = new File("orderitemtxt.txt");
-        OrderItem oi = new OrderItem();
-
-        boolean checkorder = oi.select_cus_id();;
-        if (!checkorder){
-            JOptionPane.showMessageDialog(null,"You have not order any product!");
-        }else{
-            try {
-                FileReader fr = new FileReader(file);
-                BufferedReader br = new BufferedReader(fr);
-                DefaultTableModel model = (DefaultTableModel)OrderItemTable.getModel();
-                Object[] lines = br.lines().toArray();
-                model.fireTableDataChanged();
-
-                for(int i = 0; i < lines.length; i++){
-                    String[] row = lines[i].toString().split(",");
-                    model.insertRow(i, row);
-                }
-            } catch (FileNotFoundException ex) {
-                Logger.getLogger(Add_odr.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        */
+        try{DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
+        model.setRowCount(0);}catch(Exception e){}
+        
+        try{DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
+            OrderItem odr = new OrderItem();
+            ArrayList<Object[]> al = odr.view_cart_item(model, "cartitemtxt.txt");
+            for(int i =0; al.size()>i;i++){
+                model.addRow(al.get(i));
+            }}catch(Exception e){}
+        
+        
     }//GEN-LAST:event_show_odr_item_butActionPerformed
 
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
@@ -373,6 +364,21 @@ public class Upd_Del_odr extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_edit_odr_itemActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        OrderItem oi = new OrderItem();
+        DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
+        int SelectedRow = OrderItemTable.getSelectedRow();
+        model.removeRow(SelectedRow);
+        
+            try {
+                String pdt_ID = productid_txt.getText();
+                oi.delete_order_item(pdt_ID);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Delete fail!", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

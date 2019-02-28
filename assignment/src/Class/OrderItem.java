@@ -50,8 +50,29 @@ public class OrderItem{
         this.order_id = order_id;
     }
     
-    public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
-        
+    public void add_order_item(String pdt_ID){
+        ArrayList<String> array = new ArrayList<>();
+        try (FileReader fr = new FileReader(CartFile)) {
+            Scanner scan = new Scanner(fr);
+            while (scan.hasNextLine()) {
+                String lines = scan.nextLine();
+                String[] ArrayLine = lines.split(",");
+                if (ArrayLine[1].equals(pdt_ID) && ArrayLine[0].equals(cus_ID)) {
+                    
+                    
+                    JOptionPane.showMessageDialog(null, "Product already in Cart, Please go to Delete Page to Delete the Product.");
+                    
+                } else {
+                    
+                    array.add(lines);
+                }
+            }
+            //close the file writter
+            fr.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         try{    
             
             File writefile = new File(CartFile);
@@ -220,7 +241,7 @@ public class OrderItem{
                 if (ArrayLine[1].equals(pdt_ID) && ArrayLine[0].equals(cus_ID)) {
                     
                     array.add(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
-                    JOptionPane.showMessageDialog(null, "Successfully Update Order.");
+                    JOptionPane.showMessageDialog(null, "Successfully Update Order item.");
                     System.out.println(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
                 } else {
                     
@@ -245,6 +266,45 @@ public class OrderItem{
             }
         }
     }
-    
+    public void delete_order_item(String pdt_ID) {
+
+        
+        File inputFile = new File("cartitemtxt.txt");
+        File tempFile = new File("temp.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                ArrayList<String> List = new ArrayList<>(Arrays.asList(currentLine.split(",")));
+                
+                if (!List.get(1).equals(pdt_ID)) {
+                    writer.write(currentLine + System.getProperty("line.separator"));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Order item Deleted!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            writer.close();
+            reader.close();
+
+            if (!inputFile.delete()) {
+                JOptionPane.showMessageDialog(null, "delete in file fail !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+            if (!tempFile.renameTo(inputFile)) {
+                JOptionPane.showMessageDialog(null, "rename file fail !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        tempFile.renameTo(inputFile);
+        
+
+    }
     
 }
