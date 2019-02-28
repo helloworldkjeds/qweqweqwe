@@ -23,15 +23,15 @@ public class DisplayBill extends javax.swing.JFrame {
      */
     public DisplayBill() {
         initComponents();
-        
         Customer cus = new Customer();
+        Order odr = new Order();
         boolean checkorder = cus.order_select_cus_id();
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"You have not ordered any product!");
         }else{
             DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
             
-            ArrayList<Object[]> al = cus.view_bill(cus.get_id_no(), model, "ordertxt.txt");
+            ArrayList<Object[]> al = odr.view_bill(cus.get_id_no(), model, "ordertxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }

@@ -86,4 +86,61 @@ public class Order extends OrderItem{
         }
         return al;
     }
+    
+    
+    public ArrayList<Object[]> view_bill(String cus_id, DefaultTableModel tb, String OrderFile){
+        Scanner Sc = new Scanner(System.in);
+        Object [] row =new Object[]{};
+        ArrayList al = new ArrayList<Object[]>(); 
+        try
+        {
+            File file2Read = new File(OrderFile);
+            Sc = new Scanner(file2Read);            
+
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] Lgn = Line.split(",");
+                 if (Lgn[1].equals(cus_id) && (Lgn[4].equals("Accepted") || Lgn[4].equals("Rejected"))){
+                     row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
+                     al.add(row);
+                 }
+
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+
+        }
+        return al;
+    }
+    
+    public ArrayList<Object[]> view_order(String cus_id, DefaultTableModel tb, String OrderFile){
+        Scanner Sc = new Scanner(System.in);
+        Object [] row =new Object[]{};
+        ArrayList al = new ArrayList<Object[]>(); 
+        try
+        {
+            File file2Read = new File(OrderFile);
+            Sc = new Scanner(file2Read);            
+
+            while (Sc.hasNextLine()) 
+            {
+                 String Line = Sc.nextLine();
+                 String[] Lgn = Line.split(",");
+                 if (Lgn[1].equals(cus_id) && Lgn[4].equals("Pending")){
+                     row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
+                     al.add(row);
+                 }
+
+            }
+            Sc.close();
+        }
+        catch(IOException e)
+        {
+
+        }
+        return al;
+    }
 }

@@ -6,7 +6,8 @@
 package oodj.assignment.v1;
 
 import Class.Customer;
-import Class.OrderItem;
+import Class.Order;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -23,14 +24,14 @@ public class View_product extends javax.swing.JFrame {
     public View_product() {
         initComponents();
         Customer cus = new Customer();
-        OrderItem oi = new OrderItem();
+        Order odr = new Order();
         boolean checkorder = cus.order_select_cus_id();
         if (!checkorder){
             JOptionPane.showMessageDialog(null,"There Are No Records to Show!");
         }else{
             DefaultTableModel model = (DefaultTableModel) ViewProductTable.getModel();
             
-            ArrayList<Object[]> al = cus.view_order(cus.get_id_no(), model, "producttxt.txt");
+            ArrayList<Object[]> al = odr.view_order(cus.get_id_no(), model, "producttxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }

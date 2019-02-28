@@ -159,16 +159,16 @@ public class OrderItem{
                     JOptionPane.showMessageDialog(null, "Cart cleared.", "Notification", JOptionPane.INFORMATION_MESSAGE);
                 }*/
             }
-            JOptionPane.showMessageDialog(null, "Cart Emptied!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cart cleared!", "Notification", JOptionPane.INFORMATION_MESSAGE);
             writer.close();
             reader.close();
 
             if (!oldFile.delete()) {
-                JOptionPane.showMessageDialog(null, "Could not update !", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "clear cart fail !", "Error", JOptionPane.WARNING_MESSAGE);
             }
 
             if (!tempFile.renameTo(oldFile)) {
-                JOptionPane.showMessageDialog(null, "Could not Rename !", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "clear cart fail !", "Error", JOptionPane.WARNING_MESSAGE);
             }
 
         } catch (Exception e) {
@@ -209,41 +209,42 @@ public class OrderItem{
     }
     
     
-    
     public void update_order_item(String cus_ID, String pdt_ID, String pdt_Name, int odr_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
+        
         ArrayList<String> array = new ArrayList<>();
         try (FileReader fr = new FileReader("cartitemtxt.txt")) {
             Scanner scan = new Scanner(fr);
             while (scan.hasNextLine()) {
-                //check if the customer id and product id are matched
                 String lines = scan.nextLine();
                 String[] ArrayLine = lines.split(",");
                 if (ArrayLine[1].equals(pdt_ID) && ArrayLine[0].equals(cus_ID)) {
-                    //alter the data in array
+                    
                     array.add(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
-                    
-                    try (PrintWriter pr = new PrintWriter("cartitemtxt.txt")) {
-                        for (String str : array) {
-                            pr.println(str);
-                        }
-                        pr.close();
-                    } catch (Exception e) {
-                        JOptionPane.showMessageDialog(null, "Details", "Login Error", JOptionPane.ERROR_MESSAGE);
-                    }
-                    
-                    JOptionPane.showMessageDialog(null, "Update Order Item Success!");
-                    break;
+                    JOptionPane.showMessageDialog(null, "Successfully Update Order.");
+                    System.out.println(cus_ID + "," + pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + unit_Price + "," + total_Price + "," + pdt_Ctgy);
                 } else {
                     
                     array.add(lines);
                 }
             }
-            
+            //close the file writter
             fr.close();
 
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            // open the print writter to write array data into textfile
+            try (PrintWriter pr = new PrintWriter("cartitemtxt.txt")) {
+                for (String str : array) {
+                    pr.println(str);
+                }
+                pr.close();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Write file failed", "Login Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
-    
     }
+    
+    
 }

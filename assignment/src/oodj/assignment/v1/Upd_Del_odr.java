@@ -80,6 +80,8 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         back_but = new javax.swing.JButton();
         odr_qtt_txt = new javax.swing.JTextField();
         odr_qttlab1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        crr_tll_prctxt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,7 +90,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
 
             },
             new String [] {
-                "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "Total Price", "Product Category"
+                "CustomerID", "Product ID", "Product Name", "Product Quantity", "Unit Price", "SubTotal", "Product Category"
             }
         ));
         OrderItemTable.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,7 +129,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
 
         ttl_pricetxt.setEditable(false);
 
-        jLabel6.setText("Total Price:");
+        jLabel6.setText("New SubTotal:");
 
         cal_ttl_price_but.setText("Calculate Total Price");
         cal_ttl_price_but.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +168,10 @@ public class Upd_Del_odr extends javax.swing.JFrame {
 
         odr_qttlab1.setText("Order Quantity:");
 
+        jLabel1.setText("Current SubTotal:");
+
+        crr_tll_prctxt.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,15 +190,16 @@ public class Upd_Del_odr extends javax.swing.JFrame {
                                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel7)
                             .addComponent(pdt_id_lab)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel5)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel3)
-                            .addComponent(odr_qttlab1))
+                            .addComponent(odr_qttlab1)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(productid_txt)
@@ -203,7 +210,8 @@ public class Upd_Del_odr extends javax.swing.JFrame {
                             .addComponent(ttl_pricetxt)
                             .addComponent(cus_idtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
                             .addComponent(odr_qtt_txt)
-                            .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(cal_ttl_price_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(crr_tll_prctxt))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -232,11 +240,15 @@ public class Upd_Del_odr extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(pdt_prc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(crr_tll_prctxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
+                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(odr_qttlab1)
                             .addComponent(odr_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -322,7 +334,8 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         pdt_name_txt.setText(model.getValueAt(selectedRowIndex, 2).toString());
         pdt_qtt_txt.setText(model.getValueAt(selectedRowIndex, 3).toString());
         pdt_prc_txt.setText(model.getValueAt(selectedRowIndex, 4).toString());
-        pdt_ctg.setText(model.getValueAt(selectedRowIndex, 5).toString());
+        crr_tll_prctxt.setText(model.getValueAt(selectedRowIndex, 5).toString());
+        pdt_ctg.setText(model.getValueAt(selectedRowIndex, 6).toString());
         ttl_pricetxt.setText(String.valueOf(""));    
     }//GEN-LAST:event_OrderItemTableMouseClicked
 
@@ -340,12 +353,16 @@ public class Upd_Del_odr extends javax.swing.JFrame {
             String pdt_ID = productid_txt.getText();
             String pdt_Name = pdt_name_txt.getText();
             double unit_Price = Double.parseDouble(pdt_prc_txt.getText());
-            total_Price = Double.parseDouble(ttl_pricetxt.getText());
-            int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
+            
+            
             int odr_Qtt = Integer.parseInt(odr_qtt_txt.getText());
+            total_Price = Double.parseDouble(ttl_pricetxt.getText());
             String pdt_Ctgy = pdt_ctg.getText();
+            
+            int pdt_Qtt = Integer.parseInt(pdt_qtt_txt.getText());
             if (odr_Qtt <= pdt_Qtt){
                 oi.update_order_item(cus_ID, pdt_ID, pdt_Name, odr_Qtt, unit_Price,total_Price, pdt_Ctgy);
+                
                 int pdt_left = pdt_Qtt - odr_Qtt;
             }
             else{
@@ -396,9 +413,11 @@ public class Upd_Del_odr extends javax.swing.JFrame {
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JButton back_but;
     private javax.swing.JButton cal_ttl_price_but;
+    private javax.swing.JTextField crr_tll_prctxt;
     private javax.swing.JTextField cus_idtxt;
     private javax.swing.JButton edit_odr_item;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -39,15 +39,16 @@
                           <Component id="jScrollPane2" min="-2" pref="792" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           <Component id="pdt_id_lab" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="1" max="32767" attributes="0"/>
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="odr_qttlab1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -60,6 +61,7 @@
                           <Component id="cus_idtxt" pref="189" max="32767" attributes="0"/>
                           <Component id="odr_qtt_txt" max="32767" attributes="0"/>
                           <Component id="cal_ttl_price_but" alignment="0" max="32767" attributes="0"/>
+                          <Component id="crr_tll_prctxt" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -98,12 +100,17 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="pdt_prc_txt" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="crr_tll_prctxt" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="pdt_ctg" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="odr_qttlab1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="odr_qtt_txt" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -147,7 +154,7 @@
                 <Column editable="true" title="Product Name" type="java.lang.Object"/>
                 <Column editable="true" title="Product Quantity" type="java.lang.Object"/>
                 <Column editable="true" title="Unit Price" type="java.lang.Object"/>
-                <Column editable="true" title="Total Price" type="java.lang.Object"/>
+                <Column editable="true" title="SubTotal" type="java.lang.Object"/>
                 <Column editable="true" title="Product Category" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -248,7 +255,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Total Price:"/>
+        <Property name="text" type="java.lang.String" value="New SubTotal:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cal_ttl_price_but">
@@ -315,6 +322,16 @@
     <Component class="javax.swing.JLabel" name="odr_qttlab1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Order Quantity:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Current SubTotal:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="crr_tll_prctxt">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
       </Properties>
     </Component>
   </SubComponents>
