@@ -294,7 +294,7 @@ public class Add_odr extends javax.swing.JFrame {
             total_Price = Double.parseDouble(ttl_pricetxt.getText());
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Please calculate total price!");
+            JOptionPane.showMessageDialog(null,"Please Calculate Total Price!");
         }
         try{
             OrderItem oi = new OrderItem();
@@ -310,7 +310,7 @@ public class Add_odr extends javax.swing.JFrame {
                 int pdt_left = pdt_Qtt - odr_Qtt;
             }
             else{
-                 JOptionPane.showMessageDialog(null,"Insufficient product for purchase!");
+                 JOptionPane.showMessageDialog(null,"Insufficient Product for Purchase!");
             }
         }
         catch(Exception e){
@@ -333,7 +333,7 @@ public class Add_odr extends javax.swing.JFrame {
             ttl_pricetxt.setText(String.valueOf(total_price));  
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Please enter quantity of product for order!");
+            JOptionPane.showMessageDialog(null,"Please Enter Quantity of Product for Order!");
         }
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 

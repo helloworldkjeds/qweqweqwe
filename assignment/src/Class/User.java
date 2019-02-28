@@ -187,7 +187,7 @@ public class User extends DataObject{
                         
                 pw.flush();
                 pw.close();
-                System.out.println("Register successfully ");
+                System.out.println("Registration Success!");
             }
             else if (position == "Customer"){
                 id_no = ("CU" + random_no1 + random_no2 + random_no3 + DateTimeFormatter.ofPattern("dd").format(localDate) );
@@ -208,11 +208,11 @@ public class User extends DataObject{
                         position);
                 pw.flush();
                 pw.close();
-                System.out.println("Register successfully.");
+                System.out.println("Registration Success!");
             }
         }
         else if (!create_user){
-                JOptionPane.showMessageDialog(null,"Email cannot be same.");
+                JOptionPane.showMessageDialog(null,"Email address cannot be identical.");
                 
             }
         

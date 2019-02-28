@@ -70,10 +70,10 @@ public class OrderItem{
 
             pw.flush();
             pw.close();
-            System.out.println("Product added to cart successfully");
+            System.out.println("Product Successfully Added to Cart!");
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Add to cart fail!","Add to cart Error",JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Add to Cart Fail!","Add to Cart ERROR",JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -159,7 +159,7 @@ public class OrderItem{
                     JOptionPane.showMessageDialog(null, "Cart cleared.", "Notification", JOptionPane.INFORMATION_MESSAGE);
                 }*/
             }
-            JOptionPane.showMessageDialog(null, "Cart cleared.", "Notification", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cart Emptied!", "Notification", JOptionPane.INFORMATION_MESSAGE);
             writer.close();
             reader.close();
 
@@ -231,7 +231,7 @@ public class OrderItem{
                         JOptionPane.showMessageDialog(null, "Details", "Login Error", JOptionPane.ERROR_MESSAGE);
                     }
                     
-                    JOptionPane.showMessageDialog(null, "Successfully Update Order Item.");
+                    JOptionPane.showMessageDialog(null, "Update Order Item Success!");
                     break;
                 } else {
                     

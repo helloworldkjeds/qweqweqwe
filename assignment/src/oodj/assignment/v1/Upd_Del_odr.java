@@ -37,7 +37,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
         
         boolean checkorder = cus.cart_select_cus_id();
         if (!checkorder){
-            JOptionPane.showMessageDialog(null,"You have not order any product!");
+            JOptionPane.showMessageDialog(null,"You have not ordered any product!");
         }else{
             DefaultTableModel model = (DefaultTableModel) OrderItemTable.getModel();
             OrderItem odr = new OrderItem();
@@ -271,7 +271,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
             ttl_pricetxt.setText(String.valueOf(total_price));  
         }
         catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Please enter quantity of product for order!");
+            JOptionPane.showMessageDialog(null,"Please enter quantity of product to order!");
         }
     }//GEN-LAST:event_cal_ttl_price_butActionPerformed
 
