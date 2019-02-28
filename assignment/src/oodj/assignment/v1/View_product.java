@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Hanson
+ * @author new
  */
 public class View_product extends javax.swing.JFrame {
 
@@ -25,17 +25,14 @@ public class View_product extends javax.swing.JFrame {
         initComponents();
         Customer cus = new Customer();
         Order odr = new Order();
-        boolean checkorder = cus.order_select_cus_id();
-        if (!checkorder){
-            JOptionPane.showMessageDialog(null,"There Are No Records to Show!");
-        }else{
+        
             DefaultTableModel model = (DefaultTableModel) ViewProductTable.getModel();
             
             ArrayList<Object[]> al = odr.view_order(cus.get_id_no(), model, "producttxt.txt");
             for(int i =0; al.size()>i;i++){
                 model.addRow(al.get(i));
             }
-        }
+        
     }
 
     /**

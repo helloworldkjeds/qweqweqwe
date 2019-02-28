@@ -1,0 +1,2 @@
+CU68422,PD48285,Table,2,62.99,125.98,Non-fragile
+CU68422,PD80282,Chair,3,31.49,94.47,Non-fragile

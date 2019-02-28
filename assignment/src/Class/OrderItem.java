@@ -50,54 +50,51 @@ public class OrderItem{
         this.order_id = order_id;
     }
     
-    public void add_order_item(String pdt_ID){
+    public void add_order_item(String pdt_ID,String pdt_Name,int odr_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
         ArrayList<String> array = new ArrayList<>();
+        Customer cus = new Customer();
         try (FileReader fr = new FileReader(CartFile)) {
             Scanner scan = new Scanner(fr);
             while (scan.hasNextLine()) {
                 String lines = scan.nextLine();
                 String[] ArrayLine = lines.split(",");
-                if (ArrayLine[1].equals(pdt_ID) && ArrayLine[0].equals(cus_ID)) {
-                    
-                    
+                if (ArrayLine[0].equals(cus.get_id_no()) && ArrayLine[1].equals(pdt_ID)) {
                     JOptionPane.showMessageDialog(null, "Product already in Cart, Please go to Delete Page to Delete the Product.");
                     
-                } else {
+                    break;
+                }
+                else if(ArrayLine[0].equals(cus.get_id_no()) &&!(ArrayLine[1].equals(pdt_ID))){
+                    try{    
+                        File writefile = new File(CartFile);
+                        FileWriter fileWritter = new FileWriter(writefile,true);
+                        BufferedWriter bw = new BufferedWriter(fileWritter);
+                        PrintWriter pw = new PrintWriter(bw);
+                        
+                        pw.println(cus.get_id_no() + "," 
+                                + pdt_ID + "," 
+                                + pdt_Name + "," 
+                                + odr_Qtt + "," 
+                                + unit_Price + "," +
+                                + total_Price + "," + 
+                                pdt_Ctgy);
+                        
+
+                        pw.flush();
+                        pw.close();
+                        System.out.println("Product Successfully Added to Cart!");
+                        }
+                    catch(Exception e){
+                        JOptionPane.showMessageDialog(null,"Add to Cart Fail!","Add to Cart ERROR",JOptionPane.ERROR_MESSAGE);
+                    }
                     
-                    array.add(lines);
                 }
             }
-            //close the file writter
             fr.close();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try{    
             
-            File writefile = new File(CartFile);
-            FileWriter fileWritter = new FileWriter(writefile,true);
-            BufferedWriter bw = new BufferedWriter(fileWritter);
-            PrintWriter pw = new PrintWriter(bw);
-            Customer cus = new Customer();
-            
-            pw.println(cus.get_id_no() + "," 
-                    + pdt_ID + "," 
-                    + pdt_Name + "," 
-                    + pdt_Qtt + "," 
-                    + unit_Price + "," +
-                    + total_Price + "," + 
-                    pdt_Ctgy);
-
-            pw.flush();
-            pw.close();
-            System.out.println("Product Successfully Added to Cart!");
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null,"Add to Cart Fail!","Add to Cart ERROR",JOptionPane.ERROR_MESSAGE);
-        }
     }
-    
     
     
     public ArrayList<Object[]> view_cart_item(DefaultTableModel tb, String fname){
@@ -285,6 +282,7 @@ public class OrderItem{
                     writer.write(currentLine + System.getProperty("line.separator"));
                 } else {
                     JOptionPane.showMessageDialog(null, "Order item Deleted!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+                    break;
                 }
             }
             writer.close();
