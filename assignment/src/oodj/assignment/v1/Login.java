@@ -179,7 +179,7 @@ public class Login extends javax.swing.JFrame {
             if (!login){
                 JOptionPane.showMessageDialog(null,"Invalid login!");
             }else{
-                JOptionPane.showMessageDialog(null,"You logged in as: " + Position);
+                JOptionPane.showMessageDialog(null,"FUCK LEONG You logged in as: " + Position);
                 
                 this.setVisible(false);
                 

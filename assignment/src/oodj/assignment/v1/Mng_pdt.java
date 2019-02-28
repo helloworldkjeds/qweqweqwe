@@ -119,7 +119,9 @@ public class Mng_pdt extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void view_pdtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_pdtActionPerformed
-        // TODO add your handling code here: 
+        View_product viewpdt = new View_product();
+        viewpdt.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_view_pdtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
