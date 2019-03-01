@@ -5,6 +5,7 @@
  */
 package oodj.assignment.v1;
 
+import Class.Customer;
 import Class.Fragile;
 import Class.Non_fragile;
 import Class.Product;

@@ -29,17 +29,17 @@ import oodj.assignment.v1.Add_odr;
  */
 
 
-public class Order extends OrderItem{
+public class Order{
     
     
     
     
-    @Override
+    private int order_id;
     public int get_order_id(){
         return order_id;
     }
 
-    @Override
+    
     public void set_order_id(int order_id){
         this.order_id = order_id;
     }

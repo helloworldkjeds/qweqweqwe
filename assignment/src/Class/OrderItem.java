@@ -35,7 +35,7 @@ import javax.swing.table.DefaultTableModel;
  * @author New
  */
 public class OrderItem{
-    
+    //put orderitem inside order class
     private final String CartFile = "cartitemtxt.txt";
     private final String OrderItemFile = "orderitemtxt.txt";
     

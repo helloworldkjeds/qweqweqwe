@@ -62,13 +62,14 @@ public class Product {
     public void set_pdt_price(double pdt_price){
         this.pdt_price = pdt_price;
     }
-    /*
+    
     public double calculate_final_price(double pdt_Price,String pdt_Ctgy){
         
         double final_price = 0;
         Product pdt = new Product();
         pdt.set_pdt_price(pdt_Price);
         pdt.set_pdt_ctgy(pdt_Ctgy);
+        
         if (pdt.get_pdt_ctgy() == "Non-fragile"){
             final_price = pdt.get_pdt_price() + (pdt.get_pdt_price() * 0.05);  
         }
@@ -82,7 +83,7 @@ public class Product {
         
         return final_price;
     }
-    */
+    
     public double calculate_total_price(double pdt_Price,int odr_Qtt){
         
         double total_price = 0;
