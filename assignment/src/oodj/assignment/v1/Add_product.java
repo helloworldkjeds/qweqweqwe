@@ -5,6 +5,8 @@
  */
 package oodj.assignment.v1;
 
+import Class.Fragile;
+import Class.Non_fragile;
 import Class.Product;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
@@ -278,12 +280,19 @@ public class Add_product extends javax.swing.JFrame {
     }//GEN-LAST:event_price_txtActionPerformed
 
     private void cal_final_price_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cal_final_price_butActionPerformed
-        Product pdt = new Product();
+        
         double pdt_Price = Double.parseDouble(price_txt.getText());
         String pdt_Ctgy = (String)pdt_ctg_combox.getSelectedItem();
-        double final_price = pdt.calculate_final_price(pdt_Price, pdt_Ctgy);
-        final_price_txt.setText(String.valueOf(final_price));    
-        
+        if (pdt_Ctgy == "Fragile"){
+            Fragile fra = new Fragile();
+            double final_price = fra.calculate_fragile_price(pdt_Price, pdt_Ctgy);
+            final_price_txt.setText(String.valueOf(final_price));  
+        }
+        else if(pdt_Ctgy == "Non-fragile"){
+            Non_fragile nonfra = new Non_fragile();
+            double final_price = nonfra.calculate_nonfragile_price(pdt_Price, pdt_Ctgy);
+            final_price_txt.setText(String.valueOf(final_price));  
+        }
 
     }//GEN-LAST:event_cal_final_price_butActionPerformed
 

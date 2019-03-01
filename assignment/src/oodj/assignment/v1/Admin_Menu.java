@@ -55,6 +55,11 @@ public class Admin_Menu extends javax.swing.JFrame {
         });
 
         mng_odr_but.setText("Manage Order");
+        mng_odr_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mng_odr_butActionPerformed(evt);
+            }
+        });
 
         chk_odr_but.setText("Check Order");
 
@@ -128,6 +133,12 @@ public class Admin_Menu extends javax.swing.JFrame {
         mng_profile.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_profile_butActionPerformed
+
+    private void mng_odr_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mng_odr_butActionPerformed
+        Mng_odr_admin moa = new Mng_odr_admin();
+        moa.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_mng_odr_butActionPerformed
 
     /**
      * @param args the command line arguments
