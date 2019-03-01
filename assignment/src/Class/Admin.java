@@ -100,7 +100,7 @@ public class Admin extends User{
         return address;
     }
     
-    //address mutator
+    
     @Override
     public void set_address(String address){
         this.address = address;

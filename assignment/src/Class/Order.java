@@ -20,6 +20,7 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import oodj.assignment.v1.Add_odr;
 
@@ -32,9 +33,16 @@ import oodj.assignment.v1.Add_odr;
 public class Order{
     
     
-    
+    public Order(){}
     
     private int order_id;
+    private String cus_id;
+    private int total_item_qtt;
+    private double grand_tll;
+    
+    public String get_cus_id(){
+        return cus_id;
+    }
     public int get_order_id(){
         return order_id;
     }
@@ -44,6 +52,12 @@ public class Order{
         this.order_id = order_id;
     }
     
+    public Order(int orderID, String cus_ID, int total_item_Qtt, double grand_tll){
+        this.order_id = orderID;
+        this.cus_id = cus_ID;
+        this.total_item_qtt= total_item_Qtt;
+        this.grand_tll = grand_tll;
+    }
     
     
     public void insert_into_order( int orderID, String cus_ID, int total_item_Qtt, double grand_tll) throws IOException{
@@ -171,5 +185,116 @@ public class Order{
         }
         return al;
     }
+    
+    public void approve_order(){
+        
+        String new_order_status = "Approved";
+        System.out.println(this.order_id + "," 
+                            + this.cus_id + ","  
+                            + this.total_item_qtt + "," 
+                            + this.grand_tll + ","
+                            +new_order_status);
+        ArrayList<String> array = new ArrayList<>();
+        try(FileReader fr = new FileReader("ordertxt.txt")){
+            Scanner read = new Scanner(fr);
+            String line;
+            String[] lineArr;
+            
+            while(read.hasNextLine()){
+                
+                line = read.nextLine();
+                lineArr = line.split(",");
+                
+                if(lineArr[0].equals(Integer.toString(this.order_id)) ){            
+                    
+                    array.add(this.order_id + "," 
+                            + this.cus_id + ","  
+                            + this.total_item_qtt + "," 
+                            + this.grand_tll + ","
+                            +new_order_status);
+                    JOptionPane.showMessageDialog(null,"Order Accepted");
+                }
+                else{
+                    
+                    array.add(line);
+                }
+            }
+            
+            fr.close();
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            
+            try(PrintWriter pr = new PrintWriter("ordertxt.txt")){
+                for(String string : array){
+                    pr.println(string);
+                    System.out.println(string);
+                }
+                pr.close();
+
+            }
+            catch(Exception e){
+                 JOptionPane.showMessageDialog(null,"Details","Login Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    } 
+    public void reject_order(){
+        
+        String new_order_status = "Rejected";
+        System.out.println(this.order_id + "," 
+                            + this.cus_id + ","  
+                            + this.total_item_qtt + "," 
+                            + this.grand_tll + ","
+                            +new_order_status);
+        ArrayList<String> array = new ArrayList<>();
+        try(FileReader fr = new FileReader("ordertxt.txt")){
+            Scanner read = new Scanner(fr);
+            String line;
+            String[] lineArr;
+            
+            while(read.hasNextLine()){
+                
+                line = read.nextLine();
+                lineArr = line.split(",");
+                
+                if(lineArr[0].equals(Integer.toString(this.order_id)) ){            
+                    
+                    array.add(this.order_id + "," 
+                            + this.cus_id + ","  
+                            + this.total_item_qtt + "," 
+                            + this.grand_tll + ","
+                            +new_order_status);
+                    JOptionPane.showMessageDialog(null,"Order Accepted");
+                }
+                else{
+                    
+                    array.add(line);
+                }
+            }
+            
+            fr.close();
+            
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            
+            try(PrintWriter pr = new PrintWriter("ordertxt.txt")){
+                for(String string : array){
+                    pr.println(string);
+                    System.out.println(string);
+                }
+                pr.close();
+
+            }
+            catch(Exception e){
+                 JOptionPane.showMessageDialog(null,"Details","Login Error",JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    } 
     
 }

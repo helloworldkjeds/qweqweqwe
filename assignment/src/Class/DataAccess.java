@@ -94,7 +94,7 @@ public class DataAccess {
     private int addNew( int id, String recordLine ){
         int isAdded = -1;
         try(PrintWriter out = new PrintWriter( new FileWriter(this.target_file, true) )) {
-            String newLine = String.join("|", Integer.toString(id), recordLine);
+            String newLine = String.join(",", Integer.toString(id), recordLine);
             out.println( newLine );
             isAdded = 1;
         } catch (Exception e) {
@@ -118,7 +118,7 @@ public class DataAccess {
                             break;
                         case "edit":
                             if ( line.startsWith( Integer.toString(id)) ) {
-                                String newLine = String.join("|", Integer.toString(id), recordLine);
+                                String newLine = String.join(",", Integer.toString(id), recordLine);
                                 temp_list.add( newLine );
                             }else{
                                 temp_list.add( line );

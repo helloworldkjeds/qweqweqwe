@@ -6,9 +6,12 @@
 package oodj.assignment.v1;
 
 import Class.Customer;
+import Class.DataAccess;
 import Class.Order;
 import Class.OrderItem;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -141,6 +144,11 @@ public class Mng_odr_admin extends javax.swing.JFrame {
         jLabel7.setText("Order ID:");
 
         jButton1.setText("Approve");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reject");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -160,40 +168,36 @@ public class Mng_odr_admin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 797, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(pdt_id_lab)
-                                                    .addComponent(jLabel2)
-                                                    .addComponent(jLabel4)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(jLabel3))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(productid_txt)
-                                                    .addComponent(pdt_name_txt)
-                                                    .addComponent(pdt_qtt_txt)
-                                                    .addComponent(pdt_prc_txt)
-                                                    .addComponent(ttl_pricetxt)
-                                                    .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel5)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(33, 33, 33))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(150, 150, 150))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(pdt_id_lab)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel3))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(productid_txt)
+                                            .addComponent(pdt_name_txt)
+                                            .addComponent(pdt_qtt_txt)
+                                            .addComponent(pdt_prc_txt)
+                                            .addComponent(ttl_pricetxt)
+                                            .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(33, 33, 33))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
+                                .addGap(150, 150, 150))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -206,10 +210,10 @@ public class Mng_odr_admin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -256,8 +260,8 @@ public class Mng_odr_admin extends javax.swing.JFrame {
     }//GEN-LAST:event_productid_txtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
-        Mng_odr_cus moc = new Mng_odr_cus();
-        moc.setVisible(true);
+        Admin_Menu am = new Admin_Menu();
+        am.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
 
@@ -298,8 +302,51 @@ public class Mng_odr_admin extends javax.swing.JFrame {
         System.out.println(order_id);
     }    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+        int selectedRowIndex = OrderTable.getSelectedRow();
+        
+        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        
+        String cus_ID = model.getValueAt(selectedRowIndex, 1).toString();
+        int total_item_Qtt=Integer.parseInt(model.getValueAt(selectedRowIndex, 2).toString());
+        double grand_tll=Double.parseDouble(model.getValueAt(selectedRowIndex, 3).toString());
+        System.out.println(order_id+cus_ID+total_item_Qtt+grand_tll);
+        try {
+            
+            Order odr = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
+            odr.reject_order();  
+            //DataAccess da = new DataAccess();
+            //da.set("modify", order_id, "ordertxt.txt");
+        } 
+        catch (Exception ex) {
+            Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultTableModel model = (DefaultTableModel) OrderTable.getModel();
+        int selectedRowIndex = OrderTable.getSelectedRow();
+        
+        order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        
+        String cus_ID = model.getValueAt(selectedRowIndex, 1).toString();
+        int total_item_Qtt=Integer.parseInt(model.getValueAt(selectedRowIndex, 2).toString());
+        double grand_tll=Double.parseDouble(model.getValueAt(selectedRowIndex, 3).toString());
+        System.out.println(order_id+cus_ID+total_item_Qtt+grand_tll);
+        try {
+            
+            Order odr = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
+            odr.approve_order();  
+            //DataAccess da = new DataAccess();
+            //da.set("modify", order_id, "ordertxt.txt");
+        } 
+        catch (Exception ex) {
+            Logger.getLogger(OrderItem.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
