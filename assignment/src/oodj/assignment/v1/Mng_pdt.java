@@ -49,6 +49,11 @@ public class Mng_pdt extends javax.swing.JFrame {
         dlt_pdt_but.setText("Delete Product");
 
         src_pdt_but.setText("Search Product");
+        src_pdt_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                src_pdt_butActionPerformed(evt);
+            }
+        });
 
         edt_pdt_but.setText("Edit Product");
 
@@ -135,6 +140,12 @@ public class Mng_pdt extends javax.swing.JFrame {
         addpdt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_add_pdt_butActionPerformed
+
+    private void src_pdt_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_src_pdt_butActionPerformed
+        search_product searchpdt = new search_product();
+        searchpdt.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_src_pdt_butActionPerformed
 
     /**
      * @param args the command line arguments
