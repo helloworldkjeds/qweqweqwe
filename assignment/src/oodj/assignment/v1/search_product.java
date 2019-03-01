@@ -132,8 +132,9 @@ public class search_product extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void searchfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchfieldKeyReleased
-        String query= searchfield.getText().toLowerCase();
-        
+
+        String query= searchfield.getText();
+
         filter(query);
     }//GEN-LAST:event_searchfieldKeyReleased
 
