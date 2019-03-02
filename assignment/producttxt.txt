@@ -1,6 +1,2 @@
-PD80282,Chair,3,31.49,Non-fragile
-PD48285,Table,5,62.99,Non-fragile
-PD07283,Monitor,5,629.99,Fragile
-PD50015,Magic Broom,2,42.0,Non-fragile
-PD64010,Water bottle,5,9.89,Fragile
-PD80018,Nike adapt 3.0,1,2200.0,Fragile
+PD06020,Chair,5,41.99,Non-fragile
+PD04027,Table,7,136.49,Non-fragile

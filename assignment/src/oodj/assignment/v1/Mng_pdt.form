@@ -31,18 +31,18 @@
                           <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="add_pdt_but" pref="127" max="32767" attributes="0"/>
-                                  <Component id="edt_pdt_but" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="add_pdt_but" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="view_pdt" min="-2" pref="127" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="view_pdt" min="-2" pref="127" max="-2" attributes="0"/>
+                                      <Component id="src_pdt_but" min="-2" pref="127" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="dlt_pdt_but" min="-2" pref="127" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="edt_pdt_but" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -50,13 +50,10 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="src_pdt_but" pref="127" max="32767" attributes="0"/>
-                          <Component id="back_but" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="back_but" min="-2" pref="127" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,15 +65,13 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="add_pdt_but" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="dlt_pdt_but" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="edt_pdt_but" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="src_pdt_but" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="view_pdt" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="src_pdt_but" min="-2" pref="67" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               <Component id="back_but" min="-2" pref="55" max="-2" attributes="0"/>
               <EmptySpace pref="74" max="32767" attributes="0"/>
@@ -101,11 +96,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="add_pdt_butActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="dlt_pdt_but">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Delete Product"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="src_pdt_but">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search Product"/>
@@ -116,8 +106,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="edt_pdt_but">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Edit Product"/>
+        <Property name="text" type="java.lang.String" value="Edit / Delete Product"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edt_pdt_butActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="view_pdt">
       <Properties>

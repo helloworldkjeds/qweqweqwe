@@ -1,2 +1,0 @@
-CU68422,PD80018,Nike adapt 3.0,1,2200.0,2200.0,Fragile
-CU68422,PD64010,Water bottle,3,9.89,29.67,Fragile

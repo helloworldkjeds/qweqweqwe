@@ -31,7 +31,7 @@ public class Add_odr extends javax.swing.JFrame {
     public Add_odr() {
         initComponents();
         
-
+        
         DefaultTableModel model = (DefaultTableModel) ProductTable.getModel();
         Product pdt = new Product();
         ArrayList<Object[]> al = pdt.view_product(model,"producttxt.txt");

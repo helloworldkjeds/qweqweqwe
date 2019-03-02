@@ -372,7 +372,7 @@ public class Upd_Del_odr extends javax.swing.JFrame {
             }
         }
         catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null,"Please fill the neccessary fields!");
         }
     }//GEN-LAST:event_edit_odr_itemActionPerformed
 

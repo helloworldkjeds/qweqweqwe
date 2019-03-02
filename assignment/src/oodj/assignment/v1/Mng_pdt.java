@@ -29,7 +29,6 @@ public class Mng_pdt extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         add_pdt_but = new javax.swing.JButton();
-        dlt_pdt_but = new javax.swing.JButton();
         src_pdt_but = new javax.swing.JButton();
         edt_pdt_but = new javax.swing.JButton();
         view_pdt = new javax.swing.JButton();
@@ -47,8 +46,6 @@ public class Mng_pdt extends javax.swing.JFrame {
             }
         });
 
-        dlt_pdt_but.setText("Delete Product");
-
         src_pdt_but.setText("Search Product");
         src_pdt_but.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +53,12 @@ public class Mng_pdt extends javax.swing.JFrame {
             }
         });
 
-        edt_pdt_but.setText("Edit Product");
+        edt_pdt_but.setText("Edit / Delete Product");
+        edt_pdt_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edt_pdt_butActionPerformed(evt);
+            }
+        });
 
         view_pdt.setText("View Product");
         view_pdt.addActionListener(new java.awt.event.ActionListener() {
@@ -84,22 +86,20 @@ public class Mng_pdt extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(add_pdt_but, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                                    .addComponent(edt_pdt_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(add_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(view_pdt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(24, 24, 24)
-                                        .addComponent(view_pdt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(src_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(dlt_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addComponent(edt_pdt_but))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(src_pdt_but, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(back_but, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                        .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,13 +109,11 @@ public class Mng_pdt extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(add_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dlt_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                    .addComponent(edt_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(93, 93, 93)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edt_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(src_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(view_pdt, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(src_pdt_but, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(67, 67, 67)
                 .addComponent(back_but, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
@@ -147,6 +145,13 @@ public class Mng_pdt extends javax.swing.JFrame {
         searchpdt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_src_pdt_butActionPerformed
+
+    private void edt_pdt_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edt_pdt_butActionPerformed
+        Upd_Del_pro udp = new Upd_Del_pro();
+        udp.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_edt_pdt_butActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,7 +191,6 @@ public class Mng_pdt extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_pdt_but;
     private javax.swing.JButton back_but;
-    private javax.swing.JButton dlt_pdt_but;
     private javax.swing.JButton edt_pdt_but;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton src_pdt_but;

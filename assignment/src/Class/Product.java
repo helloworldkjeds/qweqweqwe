@@ -5,8 +5,10 @@
  */
 package Class;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +16,7 @@ import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -27,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class Product {
     
-    protected String pdt_name,pdt_ctgy,pdt_id_no;
+    protected String pdt_id,pdt_name,pdt_ctgy,pdt_id_no;
     protected int pdt_qtt;
     protected double pdt_price;
     
@@ -35,6 +38,12 @@ public class Product {
     
     private final String ProductFile = "producttxt.txt";
     
+    public String get_pdt_id(){
+        return pdt_id;
+    }
+    public void set_pdt_id(String pdt_id){
+        this.pdt_id = pdt_id;
+    }
     public String get_pdt_name(){
         return pdt_name;
     }
@@ -157,7 +166,86 @@ public class Product {
         return al;
     }
     
+    public void update_product(String pdt_ID, String pdt_Name, int odr_Qtt,double final_Price,String pdt_Ctgy){
+        
+        ArrayList<String> array = new ArrayList<>();
+        try (FileReader fr = new FileReader(ProductFile)) {
+            Scanner scan = new Scanner(fr);
+            while (scan.hasNextLine()) {
+                String lines = scan.nextLine();
+                String[] ArrayLine = lines.split(",");
+                if (ArrayLine[0].equals(pdt_ID)) {
+                    
+                    array.add(pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + final_Price + "," + pdt_Ctgy);
+                    JOptionPane.showMessageDialog(null, "Successfully Update Order item.");
+                    System.out.println(pdt_ID + "," + pdt_Name + "," + odr_Qtt + "," + final_Price + "," + pdt_Ctgy);
+                } else {
+                    
+                    array.add(lines);
+                }
+            }
+            //close the file writter
+            fr.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            // open the print writter to write array data into textfile
+            try (PrintWriter pr = new PrintWriter(ProductFile)) {
+                for (String str : array) {
+                    pr.println(str);
+                }
+                pr.close();
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Write file failed", "Login Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
     
+    
+    
+    public void delete_product(String pdt_ID) {
+
+        
+        File inputFile = new File(ProductFile);
+        File tempFile = new File("temp.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String currentLine;
+
+            while ((currentLine = reader.readLine()) != null) {
+                ArrayList<String> List = new ArrayList<>(Arrays.asList(currentLine.split(",")));
+                
+                if (!List.get(0).equals(pdt_ID)) {
+                    writer.write(currentLine + System.getProperty("line.separator"));
+                } else {
+                    JOptionPane.showMessageDialog(null, "Product Deleted!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            }
+            writer.close();
+            reader.close();
+
+            if (!inputFile.delete()) {
+                JOptionPane.showMessageDialog(null, "delete in file fail !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+            if (!tempFile.renameTo(inputFile)) {
+                JOptionPane.showMessageDialog(null, "rename file fail !", "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        tempFile.renameTo(inputFile);
+        
+
+    }
   } 
         
         
