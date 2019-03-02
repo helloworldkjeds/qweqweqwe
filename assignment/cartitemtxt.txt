@@ -1,0 +1,1 @@
+CU68422,PD04027,Table,3,136.49,409.47,Non-fragile

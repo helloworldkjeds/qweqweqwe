@@ -38,7 +38,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="mng_odr_but" min="-2" pref="135" max="-2" attributes="0"/>
                   <Component id="back_but" min="-2" pref="135" max="-2" attributes="0"/>
               </Group>
@@ -56,15 +56,9 @@
                   <Component id="mng_pdt_but" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="profile_but" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Component id="mng_odr_but" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-=======
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="mng_odr_but" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
->>>>>>> 0e359d522b68a550792c7ae47f27a0157ca047a2
               <Component id="back_but" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace pref="96" max="32767" attributes="0"/>
           </Group>

@@ -70,6 +70,7 @@ public class OrderItem{
             pw.flush();
             pw.close();
             System.out.println("Product added to cart successfully");
+            JOptionPane.showMessageDialog(null,"Product added to cart!","Add Cart",JOptionPane.ERROR_MESSAGE);
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null,"Add to cart fail!","Add to cart Error",JOptionPane.ERROR_MESSAGE);
