@@ -13,6 +13,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -217,7 +218,9 @@ public class CheckOut extends javax.swing.JFrame {
         for(int i =0; i<OrderItemTable.getRowCount();i++){
             grand_tll = grand_tll + Double.parseDouble(OrderItemTable.getValueAt(i, 5).toString());
         }
-        
+        DecimalFormat df2 = new DecimalFormat(".##");
+        String totalprice_String = df2.format(grand_tll);
+        grand_tll = Double.parseDouble(totalprice_String);
         grand_ttltxt.setText(Double.toString(grand_tll));
     }
     /**

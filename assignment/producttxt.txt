@@ -1,2 +1,3 @@
-PD06020,Chair,5,41.99,Non-fragile
-PD04027,Table,7,136.49,Non-fragile
+PD62021,chair,2,3.15,Non-fragile
+PD74021,table,21,338.1,Non-fragile
+PD54020,camera,32,3534.3,Fragile

@@ -49,6 +49,7 @@ public class OrderItem{
     public void set_order_id(int order_id){
         this.order_id = order_id;
     }
+    
     public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
         
         try{    
@@ -122,8 +123,8 @@ public class OrderItem{
         }
             
     }
-    */
     
+    */
     public ArrayList<Object[]> view_cart_item(DefaultTableModel tb, String fname){
         Scanner Sc = new Scanner(System.in);
         Object[] row =new Object[]{};

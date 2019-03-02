@@ -101,7 +101,10 @@ public class Product {
         pdt.set_pdt_price(pdt_Price);
         pdt.set_pdt_qtt(odr_Qtt);
         
-        total_price = pdt.get_pdt_price() * pdt.get_pdt_qtt();  
+        total_price = pdt.get_pdt_price() * pdt.get_pdt_qtt();
+        DecimalFormat df2 = new DecimalFormat(".##");
+        String totalprice_String = df2.format(total_price);
+        total_price = Double.parseDouble(totalprice_String);
         System.out.println(total_price);
         
         return total_price;
