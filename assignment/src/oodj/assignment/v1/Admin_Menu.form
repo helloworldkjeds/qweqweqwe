@@ -29,25 +29,19 @@
                   <Component id="admin_menu_lab" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="profile_but" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="mng_pdt_but" min="-2" pref="135" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="mng_odr_but" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="chk_odr_but" min="-2" pref="135" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="profile_but" min="-2" pref="135" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="mng_pdt_but" min="-2" pref="135" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="back_but" min="-2" pref="135" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="mng_odr_but" min="-2" pref="135" max="-2" attributes="0"/>
+                  <Component id="back_but" min="-2" pref="135" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -63,10 +57,7 @@
                   <Component id="profile_but" min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="mng_odr_but" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                  <Component id="chk_odr_but" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-              </Group>
+              <Component id="mng_odr_but" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
               <Component id="back_but" min="-2" pref="53" max="-2" attributes="0"/>
               <EmptySpace pref="96" max="32767" attributes="0"/>
@@ -109,11 +100,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mng_odr_butActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="chk_odr_but">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Check Order"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="back_but">
       <Properties>
