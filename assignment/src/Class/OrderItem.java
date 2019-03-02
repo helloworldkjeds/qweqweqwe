@@ -59,11 +59,7 @@ public class OrderItem{
                 String lines = scan.nextLine();
                 String[] ArrayLine = lines.split(",");
                 if (ArrayLine[0].equals(cus.get_id_no()) && ArrayLine[1].equals(pdt_ID)) {
-                    JOptionPane.showMessageDialog(null, "Product already in Cart, Please go to Delete Page to Delete the Product.");
                     
-                    break;
-                }
-                else if(ArrayLine[0].equals(cus.get_id_no()) &&!(ArrayLine[1].equals(pdt_ID))){
                     try{    
                         File writefile = new File(CartFile);
                         FileWriter fileWritter = new FileWriter(writefile,true);

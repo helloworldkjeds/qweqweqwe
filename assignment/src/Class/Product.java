@@ -130,6 +130,8 @@ public class Product {
             JOptionPane.showMessageDialog(null,"Invalid Product Details","Product register Error",JOptionPane.ERROR_MESSAGE);
         }
     }
+    
+    
     public ArrayList<Object[]> view_product(DefaultTableModel tb, String fname){
         Scanner Sc = new Scanner(System.in);
         Object[] row =new Object[]{};
