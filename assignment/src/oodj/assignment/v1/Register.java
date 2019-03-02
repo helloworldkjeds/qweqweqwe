@@ -327,7 +327,7 @@ public class Register extends javax.swing.JFrame {
                         "Address: " + address + "\n" +
                         "Position: " + position);
                 
-                User user = new User();
+                User user = new User(email,password,firstname,lastname,contact_no,address,position);
                 user.user_register(email,password,firstname,lastname,contact_no,address,position);
                 Login log = new Login();
                 log.setVisible(true);

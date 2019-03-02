@@ -28,7 +28,8 @@ public class Customer extends User{
     StaticClass Sc = new StaticClass();
     @Override
     public String get_id_no(){
-        return Sc.ID_no;
+        id_no = Sc.ID_no;
+        return id_no;
     }
     
     @Override
