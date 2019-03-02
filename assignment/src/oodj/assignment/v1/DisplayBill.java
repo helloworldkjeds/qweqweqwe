@@ -52,23 +52,29 @@ public class DisplayBill extends javax.swing.JFrame {
         OrderTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         OrderItemTable = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        cus_idtxt = new javax.swing.JTextField();
-        ttl_pricetxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        pdt_ctg = new javax.swing.JTextField();
-        odr_itemtxt = new javax.swing.JTextField();
-        pdt_prc_txt = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        pdt_qtt_txt = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        pdt_name_txt = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        back_but = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         productid_txt = new javax.swing.JTextField();
         pdt_id_lab = new javax.swing.JLabel();
-        back_but = new javax.swing.JButton();
+        ttl_pricetxt = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        odr_itemtxt1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        pdt_ctg = new javax.swing.JTextField();
+        pdt_prc_txt = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        pdt_qtt_txt = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        pdt_name_txt = new javax.swing.JTextField();
+        cusid_txt = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        ttl_qtt_txt = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        grand_tll_txt = new javax.swing.JTextField();
+        odr_status_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,31 +108,14 @@ public class DisplayBill extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(OrderItemTable);
 
-        jLabel6.setText("Total Price:");
-
-        cus_idtxt.setEditable(false);
-
-        ttl_pricetxt.setEditable(false);
-
         jLabel7.setText("Customer ID:");
 
-        pdt_ctg.setEditable(false);
-
-        odr_itemtxt.setEditable(false);
-
-        pdt_prc_txt.setEditable(false);
-
-        jLabel1.setText("OrderItem ID:");
-
-        pdt_qtt_txt.setEditable(false);
-
-        jLabel5.setText("Product Category:");
-
-        jLabel4.setText("Product Price:");
-
-        pdt_name_txt.setEditable(false);
-
-        jLabel3.setText("Product Quantity:");
+        back_but.setText("Back");
+        back_but.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                back_butActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Product Name:");
 
@@ -139,12 +128,33 @@ public class DisplayBill extends javax.swing.JFrame {
 
         pdt_id_lab.setText("Product ID:");
 
-        back_but.setText("Back");
-        back_but.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                back_butActionPerformed(evt);
-            }
-        });
+        ttl_pricetxt.setEditable(false);
+
+        jLabel6.setText("Subtotal");
+
+        odr_itemtxt1.setEditable(false);
+
+        jLabel8.setText("Order ID:");
+
+        jLabel5.setText("Product Category:");
+
+        pdt_ctg.setEditable(false);
+
+        pdt_prc_txt.setEditable(false);
+
+        jLabel4.setText("Product Price:");
+
+        pdt_qtt_txt.setEditable(false);
+
+        jLabel3.setText("Product Quantity:");
+
+        pdt_name_txt.setEditable(false);
+
+        jLabel1.setText("Total Quantity");
+
+        jLabel9.setText("Grand Total:");
+
+        jLabel10.setText("Order Status:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -158,42 +168,70 @@ public class DisplayBill extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))
-                        .addGap(56, 56, 56)
+                        .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel1)
-                            .addComponent(pdt_id_lab)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(productid_txt)
-                            .addComponent(pdt_name_txt)
-                            .addComponent(pdt_qtt_txt)
-                            .addComponent(pdt_prc_txt)
-                            .addComponent(pdt_ctg)
-                            .addComponent(ttl_pricetxt)
-                            .addComponent(odr_itemtxt)
-                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(odr_itemtxt1, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
+                                    .addComponent(cusid_txt)
+                                    .addComponent(ttl_qtt_txt)
+                                    .addComponent(grand_tll_txt)
+                                    .addComponent(odr_status_txt)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel3)
+                                        .addComponent(pdt_id_lab))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(productid_txt)
+                                        .addComponent(pdt_name_txt)
+                                        .addComponent(pdt_qtt_txt)
+                                        .addComponent(pdt_prc_txt)
+                                        .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(odr_itemtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel8)
+                            .addComponent(odr_itemtxt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(cus_idtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
+                            .addComponent(cusid_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(ttl_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(grand_tll_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(odr_status_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pdt_id_lab)
                             .addComponent(productid_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -203,20 +241,20 @@ public class DisplayBill extends javax.swing.JFrame {
                             .addComponent(pdt_name_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(pdt_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(pdt_prc_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ttl_pricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)))
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(pdt_qtt_txt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(pdt_ctg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -234,7 +272,11 @@ public class DisplayBill extends javax.swing.JFrame {
         int selectedRowIndex = OrderTable.getSelectedRow();
         Order odr = new Order();
         order_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
-        
+        odr_itemtxt1.setText( model.getValueAt(selectedRowIndex, 0).toString());
+        cusid_txt.setText( model.getValueAt(selectedRowIndex, 1).toString());
+        ttl_qtt_txt.setText( model.getValueAt(selectedRowIndex, 2).toString());
+        grand_tll_txt.setText( model.getValueAt(selectedRowIndex, 3).toString());
+        odr_status_txt.setText( model.getValueAt(selectedRowIndex, 4).toString());
         select_order_item();
         
     }//GEN-LAST:event_OrderTableMouseClicked
@@ -253,18 +295,28 @@ public class DisplayBill extends javax.swing.JFrame {
     }    
     
     private void OrderItemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_OrderItemTableMouseClicked
+        DefaultTableModel model_2 = (DefaultTableModel) OrderItemTable.getModel();
         
+        int selectedRowIndex = OrderItemTable.getSelectedRow();
+       
+        
+        productid_txt.setText(model_2.getValueAt(selectedRowIndex, 1).toString());
+        pdt_name_txt.setText(model_2.getValueAt(selectedRowIndex, 2).toString());
+        pdt_prc_txt.setText(model_2.getValueAt(selectedRowIndex, 3).toString());
+        ttl_pricetxt.setText(model_2.getValueAt(selectedRowIndex, 4).toString());
+        pdt_qtt_txt.setText(model_2.getValueAt(selectedRowIndex, 5).toString());
+        pdt_ctg.setText(model_2.getValueAt(selectedRowIndex, 6).toString());
     }//GEN-LAST:event_OrderItemTableMouseClicked
-
-    private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productid_txtActionPerformed
 
     private void back_butActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_back_butActionPerformed
         Cus_Menu cm = new Cus_Menu();
         cm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_back_butActionPerformed
+
+    private void productid_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productid_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productid_txtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,17 +357,22 @@ public class DisplayBill extends javax.swing.JFrame {
     private javax.swing.JTable OrderItemTable;
     private javax.swing.JTable OrderTable;
     private javax.swing.JButton back_but;
-    private javax.swing.JTextField cus_idtxt;
+    private javax.swing.JTextField cusid_txt;
+    private javax.swing.JTextField grand_tll_txt;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField odr_itemtxt;
+    private javax.swing.JTextField odr_itemtxt1;
+    private javax.swing.JTextField odr_status_txt;
     private javax.swing.JTextField pdt_ctg;
     private javax.swing.JLabel pdt_id_lab;
     private javax.swing.JTextField pdt_name_txt;
@@ -323,5 +380,6 @@ public class DisplayBill extends javax.swing.JFrame {
     private javax.swing.JTextField pdt_qtt_txt;
     private javax.swing.JTextField productid_txt;
     private javax.swing.JTextField ttl_pricetxt;
+    private javax.swing.JTextField ttl_qtt_txt;
     // End of variables declaration//GEN-END:variables
 }

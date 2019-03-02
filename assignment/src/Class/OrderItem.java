@@ -49,7 +49,33 @@ public class OrderItem{
     public void set_order_id(int order_id){
         this.order_id = order_id;
     }
-    
+    public void add_order_item(String pdt_ID, String pdt_Name,int pdt_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
+        
+        try{    
+            
+            File writefile = new File(CartFile);
+            FileWriter fileWritter = new FileWriter(writefile,true);
+            BufferedWriter bw = new BufferedWriter(fileWritter);
+            PrintWriter pw = new PrintWriter(bw);
+            Customer cus = new Customer();
+            
+            pw.println(cus.get_id_no() + "," 
+                    + pdt_ID + "," 
+                    + pdt_Name + "," 
+                    + pdt_Qtt + "," 
+                    + unit_Price + "," +
+                    + total_Price + "," + 
+                    pdt_Ctgy);
+
+            pw.flush();
+            pw.close();
+            System.out.println("Product added to cart successfully");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Add to cart fail!","Add to cart Error",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    /*
     public void add_order_item(String pdt_ID,String pdt_Name,int odr_Qtt,double unit_Price,double total_Price,String pdt_Ctgy){
         ArrayList<String> array = new ArrayList<>();
         Customer cus = new Customer();
@@ -60,6 +86,10 @@ public class OrderItem{
                 String[] ArrayLine = lines.split(",");
                 if (ArrayLine[0].equals(cus.get_id_no()) && ArrayLine[1].equals(pdt_ID)) {
                     
+                    
+                    break;
+                }
+                else if(ArrayLine[0].equals(cus.get_id_no()) &&!(ArrayLine[1].equals(pdt_ID))){
                     try{    
                         File writefile = new File(CartFile);
                         FileWriter fileWritter = new FileWriter(writefile,true);
@@ -91,7 +121,7 @@ public class OrderItem{
         }
             
     }
-    
+    */
     
     public ArrayList<Object[]> view_cart_item(DefaultTableModel tb, String fname){
         Scanner Sc = new Scanner(System.in);

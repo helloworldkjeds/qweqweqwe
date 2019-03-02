@@ -115,7 +115,7 @@ public class Order{
             {
                  String Line = Sc.nextLine();
                  String[] Lgn = Line.split(",");
-                 if (Lgn[1].equals(cus_id) && (Lgn[4].equals("Accepted") || Lgn[4].equals("Rejected"))){
+                 if ((Lgn[1].equals(cus_id) && Lgn[4].equals("Approved")) || (Lgn[1].equals(cus_id) && Lgn[4].equals("Rejected"))){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
                      al.add(row);
                  }
