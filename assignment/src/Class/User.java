@@ -24,12 +24,11 @@ import oodj.assignment.v1.Cus_Menu;
  */
 public class User extends DataObject{
     
-    protected String id_no,email,password,firstname,lastname,address,position;
-    
+    protected String id_no,email,password,firstname,lastname,address,position;    
     protected int contact_no;
     private final String CusFile = "customertxt.txt";
     private final String AdminFile = "admintxt.txt";
-    public User() {}
+    
     
     public User(String email,String password,String position){
         this.email =email;
