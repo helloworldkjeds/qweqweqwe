@@ -1,2 +1,1 @@
-cde,123,CU68422,Hanson,Chua,161234567,Bukit Jalil,Customer
-cus@gmail.com,123,CU47803,Jack,Lim,12345645,Kuala Lumpur,Customer
+cus@gmail.com,123,CU47803,Li Hann,Chua,12345645,Kuala Lumpur,Customer
