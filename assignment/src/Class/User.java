@@ -46,16 +46,15 @@ public class User extends DataObject{
         this.position = position;
     }
     
-    
+    //id accessor
     public String get_id_no(){
             return id_no;
     }
     
+    //id mutator
     public void set_id_no(String id_no){
         this.id_no = id_no;
     }
-    
-    
     
     //email accessor
     public String get_email(){

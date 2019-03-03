@@ -349,8 +349,8 @@ public class Mng_odr_admin extends javax.swing.JFrame {
         System.out.println(order_id+cus_ID+total_item_Qtt+grand_tll);
         try {
             
-            Order odr = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
-            odr.reject_order();  
+            Order reject = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
+            reject.reject_order();  
             //DataAccess da = new DataAccess();
             //da.set("modify", order_id, "ordertxt.txt");
         } 
@@ -371,8 +371,8 @@ public class Mng_odr_admin extends javax.swing.JFrame {
         System.out.println(order_id+cus_ID+total_item_Qtt+grand_tll);
         try {
             
-            Order odr = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
-            odr.approve_order();  
+            Order accept = new Order(order_id,cus_ID,total_item_Qtt,grand_tll);
+            accept.approve_order();  
             //DataAccess da = new DataAccess();
             //da.set("modify", order_id, "ordertxt.txt");
         } 

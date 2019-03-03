@@ -193,7 +193,6 @@ public class Order{
     }
     
     public void approve_order(){
-        
         String new_order_status = "Approved";
         System.out.println(this.order_id + "," 
                             + this.cus_id + ","  
@@ -273,7 +272,7 @@ public class Order{
                             + this.total_item_qtt + "," 
                             + this.grand_tll + ","
                             +new_order_status);
-                    JOptionPane.showMessageDialog(null,"Order Accepted");
+                    JOptionPane.showMessageDialog(null,"Order Rejected");
                 }
                 else{
                     
