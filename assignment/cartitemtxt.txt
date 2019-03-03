@@ -1,2 +1,2 @@
-CU68422,PD74021,table,2,338.1,676.2,Non-fragile
+CU68422,PD74021,table,1,338.1,338.1,Non-fragile
 CU68422,PD54020,camera,2,3534.3,7068.6,Fragile
