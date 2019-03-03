@@ -31,10 +31,6 @@ import oodj.assignment.v1.Add_odr;
 
 
 public class Order{
-    
-    
-    
-    
     private int order_id;
     private String cus_id;
     private int total_item_qtt;
@@ -46,13 +42,15 @@ public class Order{
     public String get_cus_id(){
         return cus_id;
     }
+    
+    public void set_order_id(int order_id){
+        this.order_id = order_id;
+    }
     public int get_order_id(){
         return order_id;
     }
 
-    public void set_order_id(int order_id){
-        this.order_id = order_id;
-    }
+    
     public Order(){}
     public Order(int orderID, String cus_ID, int total_item_Qtt, double grand_tll){
         this.order_id = orderID;

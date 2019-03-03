@@ -1,3 +1,4 @@
-PD62021,chair,2,3.15,Non-fragile
-PD74021,table,21,338.1,Non-fragile
-PD54020,camera,32,3534.3,Fragile
+PD66031,Chair,14,46.29,Non-fragile
+PD02036,Table,7,136.49,Non-fragile
+PD07033,Glass Bottle,6,21.99,Fragile
+PD77031,Iphone,2,4178.9,Fragile

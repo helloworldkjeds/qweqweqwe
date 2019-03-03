@@ -1,3 +1,3 @@
-abc,123,AD84322,edrics,gan,372183978,4fefeqsdsw,Admin
-admin@gmail.com,123,AD26703,Admin,Admin,1234567,Kuala Lumpur,Admin
-dsa,123,AD62303,ewqewq,ewq,12321,ewqewq,Admin
+admin@gmail.com,123,AD26703,Cha Seng,Gan,601234567,Kuala Lumpur,Admin
+admin@gmail.com,123,AD26703,Cha Seng,Gan,601234567,Kuala Lumpur,Admin
+admin@gmail.com,123,AD26703,Cha Seng,Gan,601234567,Kuala Lumpur,Admin
