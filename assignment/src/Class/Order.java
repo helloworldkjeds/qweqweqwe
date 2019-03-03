@@ -40,6 +40,9 @@ public class Order{
     private int total_item_qtt;
     private double grand_tll;
     
+    public void set_cus_id(String cus_id){
+        this.cus_id = cus_id;
+    }
     public String get_cus_id(){
         return cus_id;
     }
@@ -47,7 +50,6 @@ public class Order{
         return order_id;
     }
 
-    
     public void set_order_id(int order_id){
         this.order_id = order_id;
     }
@@ -106,6 +108,8 @@ public class Order{
         Scanner Sc = new Scanner(System.in);
         Object [] row =new Object[]{};
         ArrayList al = new ArrayList<Object[]>(); 
+        Customer cus = new Customer();
+        cus.set_id_no(cus_id);
         try
         {
             File file2Read = new File(OrderFile);
@@ -115,7 +119,7 @@ public class Order{
             {
                  String Line = Sc.nextLine();
                  String[] Lgn = Line.split(",");
-                 if ((Lgn[1].equals(cus_id) && Lgn[4].equals("Approved")) || (Lgn[1].equals(cus_id) && Lgn[4].equals("Rejected"))){
+                 if ((Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Approved")) || (Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Rejected"))){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
                      al.add(row);
                  }

@@ -175,14 +175,14 @@ public class User extends DataObject{
                 BufferedWriter bw = new BufferedWriter(fileWritter);
                 PrintWriter pw = new PrintWriter(bw);
                 
-                pw.println(email + "," +
-                        password + "," +
-                        id_no + "," +
-                        firstname + "," +
-                        lastname + ","+ 
-                        contact_no + "," +
-                        address + "," +
-                        position);
+                pw.println(this.email + "," +
+                        this.password + "," +
+                        this.id_no + "," +
+                        this.firstname + "," +
+                        this.lastname + ","+ 
+                        this.contact_no + "," +
+                        this.address + "," +
+                        this.position);
                         
                 pw.flush();
                 pw.close();
@@ -197,14 +197,14 @@ public class User extends DataObject{
                 FileWriter fileWritter = new FileWriter(writefile,true);
                 BufferedWriter bw = new BufferedWriter(fileWritter);
                 PrintWriter pw=new PrintWriter(bw);
-                pw.println(email + "," +
-                        password + "," +
-                        id_no + "," +     
-                        firstname + "," +
-                        lastname + "," + 
-                        contact_no + "," +
-                        address + "," +
-                        position);
+                pw.println(this.email + "," +
+                        this.password + "," +
+                        this.id_no + "," +     
+                        this.firstname + "," +
+                        this.lastname + "," + 
+                        this.contact_no + "," +
+                        this.address + "," +
+                        this.position);
                 pw.flush();
                 pw.close();
                 System.out.println("Registration Success!");

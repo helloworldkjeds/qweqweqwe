@@ -26,6 +26,7 @@ public class Customer extends User{
     
     
     StaticClass Sc = new StaticClass();
+    
     @Override
     public String get_id_no(){
         id_no = Sc.ID_no;
@@ -39,7 +40,8 @@ public class Customer extends User{
     
     @Override
     public String get_email(){
-        return Sc.Email;
+        email = Sc.Email;
+        return email;
     }
     
     @Override
