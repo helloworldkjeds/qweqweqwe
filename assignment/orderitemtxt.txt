@@ -24,3 +24,4 @@
 9,CU68422,PD62021,chair,3.15,6.3,2,Non-fragile
 10,CU47803,PD07033,Glass Bottle,21.99,87.96,4,Fragile
 10,CU47803,PD66031,Chair,46.29,231.45,5,Non-fragile
+11,CU47803,PD07033,Glass Bottle,21.99,65.97,3,Fragile
