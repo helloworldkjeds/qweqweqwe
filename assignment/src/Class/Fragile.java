@@ -12,8 +12,8 @@ import java.text.DecimalFormat;
  * @author jcgan
  */
 public class Fragile extends Product {
-    
-    public double calculate_fragile_price(double pdt_Price,String pdt_Ctgy){
+    @Override
+    public double calculate_final_price(double pdt_Price,String pdt_Ctgy){
         
         double final_price = 0;
         Product pdt = new Product();

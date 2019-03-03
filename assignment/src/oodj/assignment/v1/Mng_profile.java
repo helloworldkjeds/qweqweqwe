@@ -302,6 +302,7 @@ public class Mng_profile extends javax.swing.JFrame {
                 cus.upd_profile(Email,Newpassword, Newfirstname, Newlastname, Newcontact_no, Newaddress);
                 
             }
+            JOptionPane.showMessageDialog(null, "Profile update success!");
         }
         else{
             //passwords are not matched

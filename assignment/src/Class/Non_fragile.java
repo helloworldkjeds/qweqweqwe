@@ -11,10 +11,9 @@ import java.text.DecimalFormat;
  *
  * @author jcgan
  */
-public class Non_fragile extends Product{
-    
-    public double calculate_nonfragile_price(double pdt_Price,String pdt_Ctgy){
-        
+public class Non_fragile extends Product{ 
+    @Override
+    public double calculate_final_price(double pdt_Price, String pdt_Ctgy) {
         double final_price = 0;
         Product pdt = new Product();
         pdt.set_pdt_price(pdt_Price);
@@ -28,6 +27,6 @@ public class Non_fragile extends Product{
         final_price = Double.parseDouble(totalprice_String);
         System.out.println(final_price);
         
-        return final_price;
+        return final_price;    
     }
 }

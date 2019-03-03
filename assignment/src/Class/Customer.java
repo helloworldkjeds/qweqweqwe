@@ -25,6 +25,10 @@ public class Customer extends User{
     public Customer(){}
     
     
+
+    public String getAddress() {
+        return address;
+    }
     StaticClass Sc = new StaticClass();
     
     @Override
@@ -145,14 +149,14 @@ public class Customer extends User{
                     temp_address = s.next();
                     temp_position = s.next();
                     if (temp_email.equals(Email)){
-                        pw.println(Email + "," +
+                        pw.println(this.email + "," +
                         Newpassword + "," +
-                        cus.get_id_no() + "," +
+                        this.id_no + "," +
                         Newfirstname + "," +
                         Newlastname + ","+ 
                         Newcontact_no + "," +
                         Newaddress + "," +
-                        cus.get_position());
+                        this.position);
                         Sc.Password = Newpassword;
                         Sc.Firstname = Newfirstname;
                         Sc.Lastname = Newlastname;
@@ -161,18 +165,20 @@ public class Customer extends User{
                         JOptionPane.showMessageDialog(null,"Update success");
                         break;
                     }
+                    
                     else{
-                        pw.println(Email + "," +
-                        cus.get_pwd() + "," +
-                        cus.get_id_no() + "," +
-                        cus.get_firstname() + "," +
-                        cus.get_lastname() + ","+ 
-                        cus.get_contact_no() + "," +
-                        cus.get_address() + "," +
-                        cus.get_position());
+                        pw.println(temp_email + "," +
+                        temp_password + "," +
+                        temp_id_no + "," +
+                        temp_firstname + "," +
+                        temp_lastname + ","+ 
+                        temp_contact_no + "," +
+                        temp_address + "," +
+                        temp_position);
                         System.out.println("update");
-                        break;
+                        
                     }
+                         
                 }
                 s.close();
                 pw.flush();

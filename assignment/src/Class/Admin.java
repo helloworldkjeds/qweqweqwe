@@ -163,18 +163,20 @@ public class Admin extends User{
                         Sc.Lastname = Newlastname;
                         Sc.Contactno = Newcontact_no;
                         Sc.Address = Newaddress;
-                        
+                        break;
                     }
                     else{
-                        pw.println(Email + "," +
-                        admin.get_pwd() + "," +
-                        admin.get_id_no() + "," +
-                        admin.get_firstname() + "," +
-                        admin.get_lastname() + ","+ 
-                        admin.get_contact_no() + "," +
-                        admin.get_address() + "," +
-                        admin.get_position());
+                        pw.println(temp_email + "," +
+                        temp_password + "," +
+                        temp_id_no + "," +
+                        temp_firstname + "," +
+                        temp_lastname + ","+ 
+                        temp_contact_no + "," +
+                        temp_address + "," +
+                        temp_position);
                         System.out.println("update");
+                    
+                    
                     }
                 }
                 s.close();
