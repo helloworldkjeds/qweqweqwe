@@ -24,11 +24,6 @@ import javax.swing.table.DefaultTableModel;
 public class Customer extends User{
     public Customer(){}
     
-    
-
-    public String getAddress() {
-        return address;
-    }
     StaticClass Sc = new StaticClass();
     
     @Override
@@ -120,7 +115,9 @@ public class Customer extends User{
     public void set_position(String position){
         this.position = position;
     }
-    
+    public String getAddress() {
+        return address;
+    }
     public void upd_profile (String Email,String Newpassword, String Newfirstname, String Newlastname, int Newcontact_no, String Newaddress){
         String tempFile = "temptxt.txt";
         Customer cus = new Customer();

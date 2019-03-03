@@ -80,7 +80,7 @@ public class Order{
         cus.set_id_no(cus_id);
         Scanner Sc = new Scanner(System.in);
         Object[] row =new Object[]{};
-        ArrayList al = new ArrayList<Object[]>(); 
+        ArrayList array = new ArrayList<Object[]>(); 
         try
         {
             File file2Read = new File(fname);
@@ -92,7 +92,7 @@ public class Order{
                  String[] Lgn = Line.split(",");
                  if (Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Pending")){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
-                     al.add(row);
+                     array.add(row);
                  }
                  
             }
@@ -102,14 +102,14 @@ public class Order{
         {
             
         }
-        return al;
+        return array;
     }
     
     
     public ArrayList<Object[]> view_bill(String cus_id, DefaultTableModel tb, String OrderFile){
         Scanner Sc = new Scanner(System.in);
         Object [] row =new Object[]{};
-        ArrayList al = new ArrayList<Object[]>(); 
+        ArrayList array = new ArrayList<Object[]>(); 
         Customer cus = new Customer();
         cus.set_id_no(cus_id);
         try
@@ -123,7 +123,7 @@ public class Order{
                  String[] Lgn = Line.split(",");
                  if ((Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Approved")) || (Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Rejected"))){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
-                     al.add(row);
+                     array.add(row);
                  }
 
             }
@@ -133,13 +133,13 @@ public class Order{
         {
 
         }
-        return al;
+        return array;
     }
     
     public ArrayList<Object[]> view_order(String cus_id, DefaultTableModel tb, String OrderFile){
         Scanner Sc = new Scanner(System.in);
         Object [] row =new Object[]{};
-        ArrayList al = new ArrayList<Object[]>(); 
+        ArrayList array = new ArrayList<Object[]>(); 
         try
         {
             File file2Read = new File(OrderFile);
@@ -151,7 +151,7 @@ public class Order{
                  String[] Lgn = Line.split(",");
                  if (Lgn[1].equals(cus_id) && Lgn[4].equals("Pending")){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
-                     al.add(row);
+                     array.add(row);
                  }
 
             }
@@ -161,14 +161,14 @@ public class Order{
         {
 
         }
-        return al;
+        return array;
     }
     
     
     public ArrayList<Object[]> view_all_order(DefaultTableModel tb, String OrderFile){
         Scanner Sc = new Scanner(System.in);
         Object [] row =new Object[]{};
-        ArrayList al = new ArrayList<Object[]>(); 
+        ArrayList array = new ArrayList<Object[]>(); 
         try
         {
             File file2Read = new File(OrderFile);
@@ -179,7 +179,7 @@ public class Order{
                 String Line = Sc.nextLine();
                 String[] Lgn = Line.split(",");
                 row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
-                al.add(row);
+                array.add(row);
                  
 
             }
@@ -189,7 +189,7 @@ public class Order{
         {
 
         }
-        return al;
+        return array;
     }
     
     public void approve_order(){

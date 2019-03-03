@@ -18,10 +18,8 @@ import javax.swing.JOptionPane;
  */
 public class Admin extends User{
     public Admin(){
-        
     }
-    
-    
+
     StaticClass Sc = new StaticClass();
     @Override
     public String get_id_no(){

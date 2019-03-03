@@ -23,6 +23,23 @@ import oodj.assignment.v1.Cus_Menu;
  * @author New
  */
 public class User extends DataObject{
+    public String get_id_no(){
+            return id_no;
+    }
+    
+    //id mutator
+    public void set_id_no(String id_no){
+        this.id_no = id_no;
+    }
+    
+    //email accessor
+    public String get_email(){
+        return email;
+    }
+    //email mutator
+    public void set_email(String email){
+        this.email = email;
+    }
     
     protected String id_no,email,password,firstname,lastname,address,position;    
     protected int contact_no;
@@ -47,23 +64,7 @@ public class User extends DataObject{
     }
     
     //id accessor
-    public String get_id_no(){
-            return id_no;
-    }
     
-    //id mutator
-    public void set_id_no(String id_no){
-        this.id_no = id_no;
-    }
-    
-    //email accessor
-    public String get_email(){
-        return email;
-    }
-    //email mutator
-    public void set_email(String email){
-        this.email = email;
-    }
     
     //password accessor
     public String get_pwd(){
