@@ -61,10 +61,12 @@ public class Order{
     
     
     public void insert_into_order( int orderID, String cus_ID, int total_item_Qtt, double grand_tll) throws IOException{
+        Customer cus = new Customer();
+        cus.set_id_no(cus_id);
         FileWriter fw= new FileWriter("ordertxt.txt",true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);
-        pw.println(orderID+","+cus_ID+","+total_item_Qtt+","+grand_tll+",Pending");
+        pw.println(orderID+","+cus.get_id_no()+","+total_item_Qtt+","+grand_tll+",Pending");
         pw.flush();
         pw.close();
         bw.close();
@@ -74,6 +76,8 @@ public class Order{
     
     
     public ArrayList<Object[]> view_product(String cus_id,String order_status,DefaultTableModel tb, String fname){
+        Customer cus = new Customer();
+        cus.set_id_no(cus_id);
         Scanner Sc = new Scanner(System.in);
         Object[] row =new Object[]{};
         ArrayList al = new ArrayList<Object[]>(); 
@@ -86,7 +90,7 @@ public class Order{
             {
                  String Line = Sc.nextLine();
                  String[] Lgn = Line.split(",");
-                 if (Lgn[1].equals(cus_id) && Lgn[4].equals("Pending")){
+                 if (Lgn[1].equals(cus.get_id_no()) && Lgn[4].equals("Pending")){
                      row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4]};
                      al.add(row);
                  }
