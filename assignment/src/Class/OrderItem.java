@@ -90,8 +90,8 @@ public class OrderItem{
             while (Sc.hasNextLine()) 
             {
                  String Line = Sc.nextLine();
-                 String[] Lgn = Line.split(",");
-                 row = new Object[] {Lgn[0],Lgn[1],Lgn[2],Lgn[3],Lgn[4],Lgn[5],Lgn[6]};  
+                 String[] lines = Line.split(",");
+                 row = new Object[] {lines[0],lines[1],lines[2],lines[3],lines[4],lines[5],lines[6]};  
                  array.add(row);
             }
             Sc.close();
@@ -112,8 +112,8 @@ public class OrderItem{
             if (br.readLine() == null){return 1;}
             while ((tmp = br.readLine()) != null){strLine = tmp;}
             String lastLine = strLine;
-            String[] lgn = lastLine.split(",");
-            order_id = Integer.parseInt(lgn[0]) + 1;
+            String[] lines = lastLine.split(",");
+            order_id = Integer.parseInt(lines[0]) + 1;
             in.close();
             return order_id;
         } catch (FileNotFoundException ex) {

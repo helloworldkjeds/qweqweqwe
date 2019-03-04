@@ -36,12 +36,6 @@ public class Order{
     private int total_item_qtt;
     private double grand_tll;
     
-    public void set_cus_id(String cus_id){
-        this.cus_id = cus_id;
-    }
-    public String get_cus_id(){
-        return cus_id;
-    }
     
     public void set_order_id(int order_id){
         this.order_id = order_id;

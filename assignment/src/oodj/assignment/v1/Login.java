@@ -169,12 +169,12 @@ public class Login extends javax.swing.JFrame {
         String Password = formattedString_password;
         String Position = (String)pos_combox.getSelectedItem();
         
-        User user = new User(Email,Password,Position);
+        
         if(Password.length() == 0){
             JOptionPane.showMessageDialog(rootPane,"Please enter your password!");
         }
         else {
-
+            User user = new User(Email,Password,Position);    
             boolean login = user.user_validate(Email,Password,Position);
             if (!login){
                 JOptionPane.showMessageDialog(null,"Invalid login!");

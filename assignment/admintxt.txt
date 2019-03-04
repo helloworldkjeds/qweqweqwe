@@ -1,2 +1,2 @@
-abc,123,AD46403,Ok,dwqdwq32134,32132,eqew25e2dwqde21e2dwqdw,Admin
-dwqdw,123,AD06503,dwqdwq,dwqdwqdq,1321,dfwqfe,Admin
+abc,123,AD46403,Ok,dwqdwq32134,32132,eqew25e2dwqde21e2dwqdw,Admin
+admin@gmail.com,123,AD06503,Cha Seng,Gan,12345678,Kuala Lumpur,Admin
